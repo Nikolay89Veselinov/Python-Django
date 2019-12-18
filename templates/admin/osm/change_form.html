@@ -1,0 +1,18 @@
+{% extends "admin/change_form.html" %}
+{% load static %}
+
+
+{% block extrastyle %}
+{{ block.super }}
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
+<link href="{% static "css/vendor/leaflet.css" %}" type="text/css" media="screen" rel="stylesheet" />
+<link href="{% static "css/osm_field.css" %}" type="text/css" media="screen" rel="stylesheet" />
+<script type="text/javascript" src="{% static "js/vendor/leaflet.js" %}"></script>
+<script type="text/javascript" src="{% static "js/osm_field.js" %}"></script>
+<script type="application/javascript">$(function () { $("#id_location").osmfield(); });</script>
+<style>
+    #marker_form>div>fieldset>div.form-row.field-location>div>div {
+        position: absolute;
+    }
+</style>
+{% endblock %}

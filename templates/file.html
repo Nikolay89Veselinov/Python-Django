@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    {% for f in files %}
+    <div>
+        <p>Download
+            <a href="{{f.file.url}}">{{f}} size={{f.size|filesizeformat}}</a>
+        </p>
+    </div>
+    {% endfor %}
+    <form action="" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <div class="field field-text">
+            <input>name: {{ form.name }}</input>
+        </div>
+        <div>
+        <p>file: {{ form.upload_file }}</p>
+        </div>
+        <button class="submit">Click me</button>
+    </form>
+{% endblock %}
