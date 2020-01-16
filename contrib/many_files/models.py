@@ -20,3 +20,4 @@ class Form(models.Model):
     upload_file = models.FileField(upload_to='photo', )
 
     objects = MyManager()
+
