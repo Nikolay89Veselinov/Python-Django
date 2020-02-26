@@ -1,12 +1,3 @@
-class Human:
-    def say_hello(self):
-        print("Hello! I am a human!")
-
-class Niki(Human):
-    def say_hello(self):
-        super().say_hello()
-        print("Hello! I am Niki")
-
-
-niki_obj = Niki()
-niki_obj.say_hello()
+def application(env, start_response):
+    start_response('200 OK', [('Content-Type','text/html')])
+    return [b"Hello World"]

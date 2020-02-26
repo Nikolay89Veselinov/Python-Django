@@ -1,4 +1,8 @@
 {% extends 'base.html' %}
+{% load static %}
+
+
+{% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
 {% block content %}
 <a href="{% url 'files' %}">Files</a>

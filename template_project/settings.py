@@ -168,8 +168,11 @@ INSTALLED_APPS = [
     'contrib.django_exes',
     'contrib.osm',
     'contrib.home',
+    'contrib.import_export_file',
 
+    'django_extensions',
     'axes',
+    'import_export',
     'allauth.account',
     'osm_field',
     'rest_framework',
@@ -178,6 +181,9 @@ INSTALLED_APPS = [
     'contrib.api_lead',
 
 ]
+
+DEFAULT_FROM_EMAIL = 'nikolay.veselinov@industria.tech'
+
 
 LANGUAGES = (
     ## Customize this

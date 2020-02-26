@@ -4,6 +4,7 @@ url = "https://pypi.org/simple"
 verify_ssl = true
 
 [dev-packages]
+pylint = "*"
 
 [packages]
 autopep8 = "==1.4.4"
@@ -71,6 +72,7 @@ ipython_genutils = "==0.2.0"
 Pillow = "==6.2.0"
 Pygments = "==2.4.2"
 Unidecode = "==1.0.23"
+uwsgi = "*"
 
 [requires]
 python_version = "3.6"
