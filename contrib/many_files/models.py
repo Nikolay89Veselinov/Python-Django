@@ -21,3 +21,6 @@ class Form(models.Model):
 
     objects = MyManager()
 
+
+class Image(models.Model):
+    image_bg = models.ImageField(upload_to='images')

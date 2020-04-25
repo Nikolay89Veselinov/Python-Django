@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from .models import File, FileCollection, Form
+from .models import File, FileCollection, Form, Image
 
 
 class FileAdmin(admin.StackedInline):
@@ -17,3 +17,9 @@ class FileCollectionAdmin(admin.ModelAdmin):
 @admin.register(Form)
 class FormAdmin(admin.ModelAdmin):
     list_display = ('name', )
+
+
+@admin.register(Image)
+class ImageAdmin(admin.ModelAdmin):
+    pass
+

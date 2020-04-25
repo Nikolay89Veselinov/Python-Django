@@ -1,11 +1,12 @@
 from django.shortcuts import render
 
-from .models import File, FileCollection
+from .models import File, FileCollection, Image
 from.forms import FileCollectionForm
 
 
 def files(request):
     files = File.objects.all()
+    images = Image.objects.all()
     if request.method == 'POST':
         form = FileCollectionForm(request.POST, request.FILES)
         if form.is_valid():
@@ -22,5 +23,6 @@ def files(request):
     context = {
         'files': files,
         'form': form,
+        'images': images
     }
     return render(request, 'file.html', context)

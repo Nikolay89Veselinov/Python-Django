@@ -5,7 +5,7 @@
     {% for f in files %}
     <div>
         <p>Download
-            <a href="{{f.file.url}}">{{f}} size={{f.size|filesizeformat}}</a>
+            <a href="{{f.file.url}}">{{f}} size={{f.size|filesizeformat }}</a>
         </p>
     </div>
     {% endfor %}
@@ -19,4 +19,7 @@
         </div>
         <button class="submit">Click me</button>
     </form>
+    {% for img in images %}
+    <img src="{{img.image_bg.url}}" alt="">
+    {% endfor %}
 {% endblock %}
