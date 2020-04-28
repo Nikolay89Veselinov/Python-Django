@@ -1,10 +1,17 @@
-{% extends 'base.html' %}
 {% load static %}
-
 
 {% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
 {% block content %}
-<a href="{% url 'files' %}">Files</a>
-<a href="{% url 'map' %}">Map</a>
+<ul>
+    <li>
+        <a href="{% url 'files' %}">Files</a>
+    </li>
+    <li>
+        <a href="{% url 'map' %}">Map</a>
+    </li>
+    <li>
+        <a href="{% url 'wizard' %}">Form_Wizard</a>
+    </li>
+</ul>
 {% endblock %}

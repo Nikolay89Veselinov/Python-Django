@@ -169,6 +169,7 @@ INSTALLED_APPS = [
     'contrib.osm',
     'contrib.home',
     'contrib.import_export_file',
+    'contrib.form_wizard',
 
     'django_extensions',
     'axes',
