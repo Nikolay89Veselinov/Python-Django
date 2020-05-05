@@ -12,7 +12,7 @@
     <form action="" method="post" enctype="multipart/form-data">
         {% csrf_token %}
         <div class="field field-text">
-            <input>name: {{ form.name }}</input>
+            <input> name: {{ form.name }}</input>
         </div>
         <div>
         <p>file: {{ form.upload_file }}</p>
