@@ -25,7 +25,7 @@ from contrib.osm.views import map
 from contrib.django_exes.views import Login
 from contrib.django_exes.forms import AxesLoginForm
 from contrib.api_lead.views import UserViewSet, ItemViewSet
-from contrib.form_wizard.views import ContactWizard
+from contrib.form_wizard.views import ContactWizard, formset_view
 
 
 
@@ -47,6 +47,7 @@ urlpatterns = [
     path('en/files/', files, name='files'),
     path('en/map/', map, name='map'),
     path('en/wizard/', ContactWizard.as_view(), name='wizard'),
+    path('en/formset/', formset_view, name='formset'),
     path('login/', Login.as_view(), name='login'),
     url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
     url(r'^accounts/', include('allauth.urls')),

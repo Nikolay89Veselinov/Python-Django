@@ -1,9 +1,11 @@
 from django.shortcuts import render
+from django.views.generic.edit import FormView
+from django.forms import formset_factory
 
 from formtools.wizard.views import SessionWizardView
 
 from .models import Client
-from .forms import ContactFormStepOne, ContactFormStepTwo, ContactFormStepTree
+from .forms import ContactFormStepOne, ContactFormStepTwo, ContactFormStepTree, Formset
 
 
 class ContactWizard(SessionWizardView):
@@ -24,3 +26,15 @@ class ContactWizard(SessionWizardView):
             return render(self.request, 'formtools/wizard/done.html', {
                 'form_data': [form.cleaned_data for form in form_list]
             })
+
+  
+def formset_view(request): 
+    context ={} 
+  
+    # creating a formset 
+    FormSet = formset_factory(Formset, extra=3, max_num=3) 
+    formset = FormSet() 
+      
+    # Add the formset to context dictionary 
+    context['formset']= formset 
+    return render(request, "formset.html", context) 

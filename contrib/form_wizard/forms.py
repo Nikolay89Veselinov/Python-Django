@@ -25,3 +25,9 @@ class ContactFormStepTree(forms.Form):
         if p1 != p2:
             raise forms.ValidationError("You password don't match")
         return cleaned_data
+
+
+# create a form 
+class Formset(forms.Form): 
+    title = forms.CharField() 
+    description = forms.CharField() 
