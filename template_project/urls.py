@@ -25,7 +25,7 @@ from contrib.osm.views import map
 from contrib.django_exes.views import Login
 from contrib.django_exes.forms import AxesLoginForm
 from contrib.api_lead.views import UserViewSet, ItemViewSet
-from contrib.form_wizard.views import ContactWizard, formset_view
+from contrib.form_wizard.views import ContactWizard, formset_view, form_messages
 
 
 
@@ -51,7 +51,7 @@ urlpatterns = [
     path('login/', Login.as_view(), name='login'),
     url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
     url(r'^accounts/', include('allauth.urls')),
-
+    path('en/form_messages/', form_messages, name='form_message'),
     # url(r'^locked/$', locked_out, name='locked_out'),
 
 

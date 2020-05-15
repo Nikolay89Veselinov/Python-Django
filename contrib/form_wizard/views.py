@@ -1,11 +1,12 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView
 from django.forms import formset_factory
+from django.contrib import messages
 
 from formtools.wizard.views import SessionWizardView
 
 from .models import Client
-from .forms import ContactFormStepOne, ContactFormStepTwo, ContactFormStepTree, Formset
+from .forms import ContactFormStepOne, ContactFormStepTwo, ContactFormStepTree, Formset, FormMessages
 
 
 class ContactWizard(SessionWizardView):
@@ -33,8 +34,19 @@ def formset_view(request):
   
     # creating a formset 
     FormSet = formset_factory(Formset, extra=3, max_num=3) 
-    formset = FormSet() 
+    formset = FormSet()
       
     # Add the formset to context dictionary 
     context['formset']= formset 
-    return render(request, "formset.html", context) 
+    return render(request, "formset.html", context)
+
+
+def form_messages(request):
+    if request.method == 'POST':
+        form = FormMessages(request.POST)
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Form submission successful')
+    else:
+        form = FormMessages()
+    return render(request, 'form_message.html', {'form': form})

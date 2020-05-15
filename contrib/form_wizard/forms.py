@@ -1,4 +1,6 @@
 from django import forms
+from .models import Client
+
 
 class ContactFormStepOne(forms.Form):
     first_name = forms.CharField(label='Име', max_length=50)
@@ -31,3 +33,10 @@ class ContactFormStepTree(forms.Form):
 class Formset(forms.Form): 
     title = forms.CharField() 
     description = forms.CharField() 
+
+
+class FormMessages(forms.ModelForm):
+
+    class Meta:
+        model = Client
+        fields = ('first_name', 'last_name', 'eng', 'phone', 'email', )
