@@ -35,7 +35,7 @@ djangocms-snippet==2.1.0
 djangocms-style==2.2.0
 djangocms-text-ckeditor==3.7.0
 djangocms-video==2.1.1
-easy-thumbnails==2.6
+django-simple-captcha==0.5.12
 html5lib==1.0.1
 idna==2.8
 ipdb==0.12.2

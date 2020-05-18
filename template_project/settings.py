@@ -152,6 +152,7 @@ INSTALLED_APPS = [
     'cms',
     'menus',
     'sekizai',
+    'captcha',
     'treebeard',
     'djangocms_text_ckeditor',
     'filer',

@@ -52,6 +52,7 @@ urlpatterns = [
     url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
     url(r'^accounts/', include('allauth.urls')),
     path('en/form_messages/', form_messages, name='form_message'),
+    path(r'captcha/', include('captcha.urls')),
     # url(r'^locked/$', locked_out, name='locked_out'),
 
 

@@ -1,4 +1,6 @@
 from django import forms
+from captcha.fields import CaptchaField
+
 from .models import Client
 
 
@@ -36,6 +38,7 @@ class Formset(forms.Form):
 
 
 class FormMessages(forms.ModelForm):
+    captcha = CaptchaField()
 
     class Meta:
         model = Client
