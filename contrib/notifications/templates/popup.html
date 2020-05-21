@@ -1,0 +1,26 @@
+<div class="popup">
+    <h2>message!</h2>
+    <span class="close">Close</span>
+    {% for ms in message %}
+    <div>
+      <div class="message">
+      {{ ms }}
+      </div>
+    </div>
+    {% endfor %}
+</div>
+  
+  <style>
+      .popup {
+        text-align: center;
+        width: 25%;
+        margin: auto;
+        border: 1px solid;
+      }
+      .close {
+        font-size: 33px;
+      }
+      .message {
+          padding: 10px;
+      }
+  </style>

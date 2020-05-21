@@ -26,7 +26,7 @@ from contrib.django_exes.views import Login
 from contrib.django_exes.forms import AxesLoginForm
 from contrib.api_lead.views import UserViewSet, ItemViewSet
 from contrib.form_wizard.views import ContactWizard, formset_view, form_messages
-
+from contrib.notifications.views import get_notification
 
 
 
@@ -53,6 +53,8 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     path('en/form_messages/', form_messages, name='form_message'),
     path(r'captcha/', include('captcha.urls')),
+    path('en/notifications/', get_notification, name='notifications')
+
     # url(r'^locked/$', locked_out, name='locked_out'),
 
 
