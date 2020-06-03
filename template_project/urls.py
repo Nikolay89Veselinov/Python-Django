@@ -27,6 +27,7 @@ from contrib.django_exes.forms import AxesLoginForm
 from contrib.api_lead.views import UserViewSet, ItemViewSet
 from contrib.form_wizard.views import ContactWizard, formset_view, form_messages
 from contrib.notifications.views import get_notification
+from contrib.sort_filter.views import filter, get_country, get_pub
 
 
 
@@ -53,11 +54,12 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
     path('en/form_messages/', form_messages, name='form_message'),
     path(r'captcha/', include('captcha.urls')),
-    path('en/notifications/', get_notification, name='notifications')
+    path('en/notifications/', get_notification, name='notifications'),
+    path('en/filter/', filter, name='filter'),
+    path('en/get_city/', get_country, name='get_country'),
+    path('en/get_pub/', get_pub, name='get0pub'),
 
     # url(r'^locked/$', locked_out, name='locked_out'),
-
-
 ]
 
 urlpatterns += i18n_patterns(

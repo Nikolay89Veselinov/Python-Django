@@ -172,6 +172,7 @@ INSTALLED_APPS = [
     'contrib.import_export_file',
     'contrib.form_wizard',
     'contrib.notifications',
+    'contrib.sort_filter',
 
     'django_extensions',
     'axes',
