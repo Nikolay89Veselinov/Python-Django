@@ -28,6 +28,7 @@ from contrib.api_lead.views import UserViewSet, ItemViewSet
 from contrib.form_wizard.views import ContactWizard, formset_view, form_messages
 from contrib.notifications.views import get_notification
 from contrib.sort_filter.views import filter, get_country, get_pub
+from contrib.calculator.views import get_response
 
 
 
@@ -58,6 +59,7 @@ urlpatterns = [
     path('en/filter/', filter, name='filter'),
     path('en/get_city/', get_country, name='get_country'),
     path('en/get_pub/', get_pub, name='get0pub'),
+    path('en/response/', get_response, name='get_response'),
 
     # url(r'^locked/$', locked_out, name='locked_out'),
 ]

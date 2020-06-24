@@ -173,6 +173,7 @@ INSTALLED_APPS = [
     'contrib.form_wizard',
     'contrib.notifications',
     'contrib.sort_filter',
+    'contrib.calculator',
 
     'django_extensions',
     'axes',

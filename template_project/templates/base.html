@@ -38,15 +38,16 @@
         {% render_block "css" %}
     </head>
     <body>
+        <a href="\">Home</a>
         {% cms_toolbar %}
         <div class="container">
           {% static_placeholder 'logo' %}
             <ul class="nav">
                 {% show_menu 0 100 100 100 %}
-            </ul>
-            {% block content %}{% endblock content %}
-            {% static_placeholder 'footer' %}
-        </div>
+            </div>
+        </ul>
+        {% block content %}{% endblock content %}
+        {% static_placeholder 'footer' %}
         {% render_block "js" %}
     </body>
 </html>

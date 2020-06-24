@@ -4,7 +4,7 @@
 {% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
 {% block content %}
-<ul>
+<ol>
     <li>
         <a href="{% url 'files' %}">Files</a>
     </li>
@@ -23,5 +23,8 @@
     <li>
         <a href="{% url 'filter' %}">Filter</a>
     </li>
-</ul>
+    <li>
+        <a href="{% url 'get_response' %}">Calculator</a>
+    </li>
+</ol>
 {% endblock %}

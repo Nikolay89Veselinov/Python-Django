@@ -1,0 +1,30 @@
+<input id="first_number" type="number">
+<select id="operation">
+    <option value="">-----</option>
+    {% for k, v in operations.items %}
+        <option value="{{ v }}">{{ v }}</option>
+    {% endfor %}
+</select>
+<input id="second_number" type="number">
+<button class="btn">=</button>
+<input id="result" type="number" pattern="^\d*(\.\d{0,2})?$" readonly placeholder="0.00">
+
+<script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+<script>
+
+$('.btn').click(function () {
+    $.ajax({
+    url: '/response/',
+    type: "GET",
+    data: {
+      'first_number': $('#first_number').val(),
+      'second_number': $('#second_number').val(),
+      'operation': $('#operation').val(),
+    },
+    success: function (response) {
+        $('#result').val(response)
+    },
+    dataType: 'json'
+    });
+})
+</script>
