@@ -174,6 +174,7 @@ INSTALLED_APPS = [
     'contrib.notifications',
     'contrib.sort_filter',
     'contrib.calculator',
+    'contrib.abstract_model',
 
     'django_extensions',
     'axes',
