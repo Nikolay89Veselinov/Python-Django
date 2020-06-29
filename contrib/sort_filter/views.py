@@ -33,14 +33,15 @@ def filter(request):
 
 def get_country(request):
     country_id = request.GET.get('country_id')
-    cities = City.objects.filter(country__pk=country_id)
     data = []
+    if country_id != 'empty':
+        cities = City.objects.filter(country__pk=country_id)
 
-    for city in cities:
-        data.append({
-            'id': city.id,
-            'city': city.name,
-        })
+        for city in cities:
+            data.append({
+                'id': city.id,
+                'city': city.name,
+            })
 
     json_content = json.dumps(data).encode('utf-8')
 
@@ -49,14 +50,15 @@ def get_country(request):
 
 def get_pub(request):
     get_pub = request.GET.get('pub_id')
-    pubs = Pub.objects.filter(city__pk=get_pub, active=True)
-
     data = []
-    for pub in pubs:
-        data.append({
-            'id': pub.pk,
-            'pub': pub.name
-        })
+    if get_pub != 'empty':
+        pubs = Pub.objects.filter(city__pk=get_pub, active=True)
+
+        for pub in pubs:
+            data.append({
+                'id': pub.pk,
+                'pub': pub.name
+            })
 
     json_content = json.dumps(data).encode('utf-8')
 
