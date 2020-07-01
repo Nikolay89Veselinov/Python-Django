@@ -6,6 +6,10 @@ class Base(models.Model):
     last_name = models.CharField(max_length=255)
     active = models.BooleanField(default=True)
 
+    class Meta:
+        abstract = True
+        ordering = ['first_name']
+
 
 class ChildA(Base):
 
