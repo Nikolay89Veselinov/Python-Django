@@ -233,8 +233,9 @@ DATABASES = {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
         'HOST': 'localhost',
-        'NAME': 'project.db',
-        'PASSWORD': '',
+        'NAME': 'template_projectdb',
+        'USER': 'template_project',
+        'PASSWORD': 'template_project',
         'PORT': '',
         'USER': ''
     }
