@@ -8,11 +8,13 @@ class Country(models.Model):
     def __str__(self):
         return self.name
 
+    class Meta:
+        ordering = ['name']
+
     def save(self, *args, **kwargs):
-        self.name += ' worldd'
+        self.name += ' world'
         super(Country, self).save(*args, **kwargs)
 
-    def 
 
 
 class City(models.Model):
