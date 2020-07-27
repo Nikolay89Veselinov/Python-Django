@@ -4,7 +4,7 @@
     {% for ms in message %}
     <div>
       <div class="message">
-      {{ ms }}
+      {{ ms|safe }}
       </div>
     </div>
     {% endfor %}

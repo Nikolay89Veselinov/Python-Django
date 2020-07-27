@@ -1,5 +1,5 @@
+{% load  custom_filter_tags %}
 <!-- first method! -->
-
 
 <!-- <h1>First method!</h1>
 <select name="country" id="country">
@@ -42,7 +42,7 @@
 <select name="country" id="country">
   <option value="empty">------</option>
   {% for country in countries %}
-    <option value="{{ country.pk }}" class="{{ country.pk }}">{{ country.name }}</option>
+    <option value="{{ country.pk }}" class="{{ country.pk }}">{{ country.name | add_xx | custom_lower }}</option>
   {% endfor %}
 </select>
 <select name="city" id="city">
