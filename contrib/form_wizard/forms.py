@@ -43,3 +43,7 @@ class FormMessages(forms.ModelForm):
     class Meta:
         model = Client
         fields = ('first_name', 'last_name', 'eng', 'phone', 'email', )
+
+    def __init__(self, *args, **kwargs):
+        super(FormMessages, self).__init__(*args, **kwargs)
+        self.fields['first_name'].help_text = '<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>'
