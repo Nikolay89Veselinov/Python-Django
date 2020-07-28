@@ -2,12 +2,13 @@ from django import forms
 from captcha.fields import CaptchaField
 
 from .models import Client
+from contrib.sort_filter.models import City
 
 
 class ContactFormStepOne(forms.Form):
-    first_name = forms.CharField(label='Име', max_length=50)
-    last_name = forms.CharField(label='Фамилия', max_length=50)
-    eng = forms.CharField(label='ЕГН', max_length=10)
+    first_name = forms.CharField(label='Име', max_length=50, initial='Gosho')
+    last_name = forms.CharField(label='Фамилия', max_length=50, initial='Petrov')
+    eng = forms.CharField(label='ЕГН', max_length=10, initial='8967452345')
 
 
 class ContactFormStepTwo(forms.Form):
@@ -47,3 +48,4 @@ class FormMessages(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super(FormMessages, self).__init__(*args, **kwargs)
         self.fields['first_name'].help_text = '<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>'
+        self.fields['city'] = forms.ModelChoiceField(label='City', required=False, queryset=City.objects.all())
