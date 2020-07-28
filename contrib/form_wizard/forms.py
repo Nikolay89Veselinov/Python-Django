@@ -2,7 +2,7 @@ from django import forms
 from captcha.fields import CaptchaField
 
 from .models import Client
-from contrib.sort_filter.models import City
+from contrib.sort_filter.models import City, Pub
 
 
 class ContactFormStepOne(forms.Form):
@@ -40,6 +40,7 @@ class Formset(forms.Form):
 
 class FormMessages(forms.ModelForm):
     captcha = CaptchaField()
+    pub = forms.ModelMultipleChoiceField(queryset=None)
 
     class Meta:
         model = Client
@@ -49,3 +50,4 @@ class FormMessages(forms.ModelForm):
         super(FormMessages, self).__init__(*args, **kwargs)
         self.fields['first_name'].help_text = '<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>'
         self.fields['city'] = forms.ModelChoiceField(label='City', required=False, queryset=City.objects.all())
+        self.fields['pub'].queryset = City.objects.all()
