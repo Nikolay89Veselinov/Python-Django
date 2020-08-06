@@ -2,11 +2,13 @@ from django.shortcuts import render, redirect
 from django.views.generic.edit import FormView
 from django.forms import formset_factory
 from django.contrib import messages
+from django.http import HttpResponseRedirect
 
 from formtools.wizard.views import SessionWizardView
 
 from .models import Client
-from .forms import ContactFormStepOne, ContactFormStepTwo, ContactFormStepTree, Formset, FormMessages
+from .forms import ContactFormStepOne, ContactFormStepTwo, ContactFormStepTree,\
+                    Formset, FormMessages, WidgetForm
 
 
 class ContactWizard(SessionWizardView):
@@ -50,3 +52,13 @@ def form_messages(request):
     else:
         form = FormMessages()
     return render(request, 'form_message.html', {'form': form})
+
+
+def widget_form(request):
+    if request.method == 'POST':
+        form = WidgetForm(request.POST)
+        if form.is_valid():
+            return render(request, 'success.html')
+    else:
+        form = WidgetForm()
+    return render(request, 'widget_form.html', {'form': form})
