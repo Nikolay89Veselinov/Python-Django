@@ -47,6 +47,7 @@
             </div>
         </ul>
         {% block content %}{% endblock content %}
+        {% block javascript %}{% endblock javascript %}
         {% static_placeholder 'footer' %}
         {% render_block "js" %}
     </body>

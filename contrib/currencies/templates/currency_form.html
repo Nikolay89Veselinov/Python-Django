@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div class="container">
+        <h1 class="title">Валутен калкулатор</h1>
+        <p class="date">{{time}}</p>
+
+        <div class="currencies">
+            <label>От Валута:</label>
+            <select id="currency_first">
+                {% for currency in Currency %}
+                <option value="{{currency.id}}">{{currency.currency}}</option>
+                {% endfor %}
+            </select>
+            <label>Към Валута:</label>
+            <select id="currency_second">
+                {% for currency in Currency %}
+                <option value="{{currency.id}}">{{currency.currency}}</option>
+                {% endfor %}
+            </select>
+        </div>
+
+        <label>Въведете Сума:</label>
+        <input type="text" id="currency_value" placeholder="Въведете Сума" />
+        <label>Резултат:</label>
+        <input type="text" id="currency_result" placeholder="Резултат" />
+    </div>
+
+{% endblock %}
+{% block javascript %}
+    <script text="text/javascript">
+        function convertCurrencies(){
+                var currency_from = $("#currency_first").val();
+                var currency_to = $("#currency_second").val();
+                var currency_value = $('#currency_value').val();
+                $.ajax({
+                    url: '{% url "convert_currencies" %}',
+                    contentType: 'application/x-www-form-urlencoded',
+                    method: 'POST',
+                    data: {currency_from: currency_from, currency_to: currency_to, currency_value:currency_value, csrfmiddlewaretoken: '{{ csrf_token }}'},
+                    dataType: 'json',
+                    success: function (data) {
+                        if (data.result){
+                            $("#currency_result").val(data.result);
+                        }
+                    }
+                });
+            }
+        $(document).ready(function(){
+            console.log($("#currency_second").val())
+            $('#currency_value').on('keyup', convertCurrencies);
+            $('#currency_first').on('change', convertCurrencies)
+            $('#currency_second').on('change', convertCurrencies)
+        });
+    </script>
+{% endblock javascript %}
