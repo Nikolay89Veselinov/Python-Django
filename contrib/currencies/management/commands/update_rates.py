@@ -19,7 +19,6 @@ class Command(BaseCommand):
         iterrows = iter(root.findall('ROW'))
         next(iterrows)
         for row in iterrows:
-            import ipdb; ipdb.set_trace()
             currency = row.find('CODE').text
             course = row.find('RATIO').text
 
