@@ -6,8 +6,13 @@ from .models import File, FileCollection, Form, Image
 class FileAdmin(admin.StackedInline):
     list_display = ('files', )
     model = File
-    extra = 1
+    extra = 2
 
+    def get_max_num(self, request, obj=None, **kwargs):
+        max_num = 3
+        if obj and obj.parent:
+            return max_num - 1
+        return max_num
 
 @admin.register(FileCollection)
 class FileCollectionAdmin(admin.ModelAdmin):

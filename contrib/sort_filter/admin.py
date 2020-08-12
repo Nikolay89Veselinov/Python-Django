@@ -14,6 +14,7 @@ class CityAdmin(admin.ModelAdmin):
 
 @admin.register(Pub)
 class PubAdmin(admin.ModelAdmin):
+    fields = (('name', 'city', 'active' ),)
     list_display = ('name', 'city', 'active', 'get_city', 'get_country')
 
     def get_city(self, obj):

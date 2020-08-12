@@ -1,0 +1,1 @@
+default_app_config = 'contrib.admin_tricks.apps.AdminTricksConfig'

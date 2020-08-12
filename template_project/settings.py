@@ -176,6 +176,7 @@ INSTALLED_APPS = [
     'contrib.calculator',
     'contrib.abstract_model',
     'contrib.currencies',
+    'contrib.admin_tricks',
     'django_extensions',
     'axes',
     'import_export',
