@@ -4,6 +4,7 @@
 {% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
 {% block content %}
+<h1>session {{view_count}}</h1>
 <ol>
     <li>
         <a href="{% url 'files' %}">Files</a>
