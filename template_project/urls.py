@@ -30,6 +30,7 @@ from contrib.notifications.views import get_notification
 from contrib.sort_filter.views import filter, get_country, get_pub
 from contrib.calculator.views import get_response
 from contrib.currencies.views import exchange_rate, convert_currencies
+from contrib.validators.views import validator
 
 
 
@@ -64,6 +65,7 @@ urlpatterns = [
     path('en/response/', get_response, name='get_response'),
     path('en/exchange_rate', exchange_rate, name='Exchange_rate'),
     path('ajax/convert_currencies', convert_currencies, name="convert_currencies"),
+    path('en/validators/', validator, name='validators'),
     # url(r'^locked/$', locked_out, name='locked_out'),
 ]
 

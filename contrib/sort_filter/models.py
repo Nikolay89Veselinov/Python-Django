@@ -1,6 +1,7 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
+from django.core.signals import request_finished
 
 class Country(models.Model):
     name = models.CharField(max_length=255)
@@ -41,6 +42,10 @@ def initial_city(sender, **kwargs):
         country = kwargs.get('instance')
         city = City(name='First city', country=country)
         city.save()
+        
+@receiver(request_finished)
+def my_callback(sender, **kwargs):
+    print(f'--------Request finished!!!!!!!!!!!----------')
 
 
 @receiver(post_save, sender=City)
