@@ -47,6 +47,7 @@ router.register(r'items', ItemViewSet)
 urlpatterns = [
     path('api/', include(router.urls), name='apii'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
+    path('en/<str:username>/<slug:article_value>/', home, name='home_user_article'),
     path('en/', home, name='home'),
     path('en/files/', files, name='files'),
     path('en/map/', map, name='map'),

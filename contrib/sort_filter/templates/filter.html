@@ -42,7 +42,7 @@
 <select name="country" id="country">
   <option value="empty">------</option>
   {% for country in countries %}
-    <option value="{{ country.pk }}" class="{{ country.pk }}">{{ country.name | add_xx | custom_lower }}</option>
+    <option value="{{ country.pk }}" class="{{ country.pk }}">{{ country.name | add_xx | custom_lower | safe}}</option>
   {% endfor %}
 </select>
 <select name="city" id="city">
