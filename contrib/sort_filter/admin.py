@@ -9,7 +9,7 @@ class CountryAdmin(admin.ModelAdmin):
 
 @admin.register(City)
 class CityAdmin(admin.ModelAdmin):
-    list_display = ('name', 'country')
+    list_display = ('id', 'name', 'country')
 
 
 @admin.register(Pub)
