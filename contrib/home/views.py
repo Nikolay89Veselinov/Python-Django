@@ -16,7 +16,7 @@ def home(request):
     }
     
     return render(request, 'home.html', context)
-    
+
 def url_with_arguments(request, username='Default User', article_value='Default Article', city_id='Default ID', **kwargs):
     user = request.user
 
@@ -31,3 +31,7 @@ def url_with_arguments(request, username='Default User', article_value='Default 
         f'<p>Login User: {user}</p>'
         f'<p>Cars: {kwargs}</p>'
     )
+
+def reverse_views(request):
+    city_id = ['Pesho', 'Pestrov', '1']
+    return HttpResponseRedirect(reverse('url_with_arguments', args=(city_id)))

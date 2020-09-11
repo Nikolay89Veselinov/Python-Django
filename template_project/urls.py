@@ -19,7 +19,7 @@ from axes.decorators import axes_form_invalid
 
 from rest_framework import routers, serializers, viewsets
 
-from contrib.home.views import home, url_with_arguments
+from contrib.home.views import home, url_with_arguments, reverse_views
 from contrib.many_files.views import files
 from contrib.osm.views import map
 from contrib.django_exes.views import Login
@@ -48,6 +48,7 @@ urlpatterns = [
     path('api/', include(router.urls), name='apii'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
     path('en/<str:username>/<slug:article_value>/<str:id>', home, name='home_user_article'),
+    path('en/reverse/', reverse_views, name='reverse_views'),
     path('en/', home, name='home'),
     path('en/url_with_arguments/', include('contrib.home.urls'), name='url_with_arguments'),
     path('en/files/', files, name='files'),
