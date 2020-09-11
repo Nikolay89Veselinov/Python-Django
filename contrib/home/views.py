@@ -17,7 +17,7 @@ def home(request):
     
     return render(request, 'home.html', context)
     
-def url_with_arguments(request, username='Default User', article_value='Default Article', city_id='Default ID'):
+def url_with_arguments(request, username='Default User', article_value='Default Article', city_id='Default ID', **kwargs):
     user = request.user
 
     if city_id != 'Default ID':
@@ -29,4 +29,5 @@ def url_with_arguments(request, username='Default User', article_value='Default 
         f'<p>Article: {article_value}</p>'
         f'<p>City: {city_id}</p>'
         f'<p>Login User: {user}</p>'
+        f'<p>Cars: {kwargs}</p>'
     )
