@@ -1,6 +1,6 @@
 from django.urls import path
 
-from contrib.home.views import url_with_arguments
+from contrib.home.views import url_with_arguments, dynamic_client
 
 car = {
     'Mercedes-Benz': 'Mercedes-Benz C320cdi',
@@ -12,4 +12,5 @@ urlpatterns = [
     path('<str:username>/', url_with_arguments, {'car': 'Audi RS6'}, name='url_with_arguments'),
     path('<str:username>/<slug:article_value>/', url_with_arguments, name='url_with_arguments'),
     path('<str:username>/<slug:article_value>/<str:city_id>/', url_with_arguments, name='url_with_arguments'),
+    path('<str:id>', dynamic_client),
 ]

@@ -44,8 +44,10 @@ def formset_view(request):
 
 
 def form_messages(request):
+    obj = Client.objects.get(id=3)
+
     if request.method == 'POST':
-        form = FormMessages(request.POST)
+        form = FormMessages(request.POST, instance=obj)
         if form.is_valid():
             form.save()
             messages.success(request, 'Form submission successful')
