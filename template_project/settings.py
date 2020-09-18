@@ -173,6 +173,7 @@ INSTALLED_APPS = [
     'contrib.home',
     'contrib.import_export_file',
     'contrib.form_wizard',
+    'contrib.crud_operation',
     'contrib.notifications',
     'contrib.sort_filter',
     'contrib.calculator',

@@ -1,0 +1,9 @@
+<form action="" method="post">
+    {% csrf_token %}
+    <p>{{ news.title }}</p>
+    <p>{{ news.autor }}</p>
+    <p>{{ news.description }}</p>
+    <p> <img src="{{news.image.url}}" alt=""></p>
+    <p>{{ news.date }}</p> 
+<p><a href="../">Cancel</a></p>
+</form>

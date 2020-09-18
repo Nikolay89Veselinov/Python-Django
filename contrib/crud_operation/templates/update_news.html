@@ -1,0 +1,6 @@
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <h1>Do you want to update the news "news.title"?</h1>
+    <p> <input type="submit" value="Yes"> <a href="../">Cancel</a></p>
+</form>

@@ -1,0 +1,10 @@
+<p>{{ news.title }}</p>
+<p>{{ news.autor }}</p>
+<p>{{ news.description }}</p>
+<img style="width:300px; height:250px;" src="{{news.image.url}}" alt="">
+<p>{{ news.date }}</p>
+<a href="/crud/create/">Create</a>
+<a href="{{ news.get_absolute_url }}detail/">Read</a>
+<a href="{{ news.get_absolute_url }}update/">Update</a>
+<a href="{{ news.get_absolute_url }}delete/">Delete</a>
+<a href="../">Back</a>

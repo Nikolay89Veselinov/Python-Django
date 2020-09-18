@@ -69,6 +69,7 @@ urlpatterns = [
     path('en/exchange_rate/', exchange_rate, name='Exchange_rate'),
     path('ajax/convert_currencies', convert_currencies, name="convert_currencies"),
     path('en/validators/', validator, name='validators'),
+    path('en/crud/', include('contrib.crud_operation.urls'), name='crud'),
     # url(r'^locked/$', locked_out, name='locked_out'),
 ]
 

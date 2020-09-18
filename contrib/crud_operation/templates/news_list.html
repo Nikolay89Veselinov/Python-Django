@@ -1,0 +1,11 @@
+<p>NEWS</p>
+<ul>
+{% for news in news %}
+    <ol>
+        <li>
+            <a href="{{ news.get_absolute_url }}">{{ news.title }}</a>
+        </li>
+    </ol>
+    {% endfor %}
+    <p><a href="../">Back</a></p>
+</ul>
