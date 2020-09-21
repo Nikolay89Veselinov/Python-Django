@@ -181,6 +181,7 @@ INSTALLED_APPS = [
     'contrib.currencies',
     'contrib.admin_tricks',
     'contrib.validators',
+    'contrib.based_views',
     'django_extensions',
     'axes',
     'import_export',
