@@ -1,7 +1,7 @@
 {% load  custom_filter_tags %}
 <!-- first method! -->
-
-<!-- <h1>First method!</h1>
+<!-- 
+<h1>First method!</h1>
 <select name="country" id="country">
   <option value="empty">------</option>
   {% for country in countries %}
@@ -15,7 +15,7 @@
   {% endfor %}
 </select>
 {% for pub in pubs %}
-  <p style="color: red;" value="{{ pub.pk }}" class="all pub {{ pub.city.pk }} {{ pub.city.country.pk }}">{{ pub.name }}</p>
+  <p style="color: red;" value="{{ pub.pk }}" class="all pub {{ pub.city.pk }}">{{ pub.name }}</p>
 {% endfor %} -->
 
 
@@ -32,7 +32,7 @@
   <option value="empty">------</option>
 </select>
 {% for pub in pubs %}
-  <p style="color: red;" value="{{ pub.pk }}" class="all pub {{ pub.city.pk }} {{ pub.city.country.pk }}">{{ pub.name }}</p>
+  <p style="color: red;" value="{{ pub.pk }}" class="all pub {{ pub.city.pk }}">{{ pub.name }}</p>
 {% endfor %}
 </div> -->
 
@@ -71,10 +71,9 @@
   // })
 
   // $("select[name=city]").on('change', function () {
-  //   $country = $('select[name=country]').val()
   //   $city = $('select[name=city]').val()
   //   $('.pub').hide();
-  //   $('.'+$country +'.'+$city).show();
+  //   $('.'+$city).show();
   // })
 
 
@@ -94,16 +93,15 @@
   // });
 
   // $("select[name=city]").on('change', function () {
-  //   $country = $('select[name=country]').val()
   //   $city = $('select[name=city]').val()
   //   $('.pub').hide();
-  //   $('.'+$country +'.'+$city).show();
+  //   $('.'+$city).show();
   // })
 
 
     // third method
 
-  $('.pub').hide();
+  // $('.pub').hide();
 
   $("select[name=country]").on('change', function () {
     $country = $('select[name=country]').val()
