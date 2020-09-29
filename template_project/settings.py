@@ -140,7 +140,7 @@ MIDDLEWARE = [
 ]
 
 INSTALLED_APPS = [
-    'admin_interface',
+    # 'admin_interface',
     'colorfield',
     'djangocms_admin_style',
     'django.contrib.auth',
