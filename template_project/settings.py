@@ -182,6 +182,7 @@ INSTALLED_APPS = [
     'contrib.admin_tricks',
     'contrib.validators',
     'contrib.based_views',
+    'contrib.petstagram',
     'django_extensions',
     'axes',
     'import_export',

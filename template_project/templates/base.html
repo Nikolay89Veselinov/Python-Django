@@ -3,6 +3,7 @@
 <html>
     <head>
         <title>{% block title %}This is my new project home page{% endblock title %}</title>
+        <link rel="icon" type="image/png" href="{% static 'instagram-png.png'%}">
         <meta name="viewport" content="width=device-width,initial-scale=1">
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -41,11 +42,11 @@
         <a href="\">Home</a>
         {% cms_toolbar %}
         <div class="container">
-          {% static_placeholder 'logo' %}
             <ul class="nav">
                 {% show_menu 0 100 100 100 %}
-            </div>
-        </ul>
+            </ul>
+          {% static_placeholder 'logo' %}
+        </div>
         {% block content %}{% endblock content %}
         {% block javascript %}{% endblock javascript %}
         {% static_placeholder 'footer' %}

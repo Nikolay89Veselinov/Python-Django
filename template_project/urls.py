@@ -70,6 +70,7 @@ urlpatterns = [
     path('ajax/convert_currencies', convert_currencies, name="convert_currencies"),
     path('en/validators/', validator, name='validators'),
     path('en/crud/', include('contrib.crud_operation.urls'), name='crud'),
+    path('en/petstagram/', include('contrib.petstagram.urls'), name='petstagram'),
     path('en/based_views/', include('contrib.based_views.urls'), name='based_views'),
     # url(r'^locked/$', locked_out, name='locked_out'),
 ]
