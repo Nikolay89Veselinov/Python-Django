@@ -50,7 +50,10 @@ class Formset(forms.Form):
 class FormMessages(forms.ModelForm):
     captcha = CaptchaField()
     pub = forms.ModelMultipleChoiceField(queryset=None)
-
+    bot_catcher = forms.CharField(
+        widget=forms.HiddenInput,
+        required=False,
+    )
     class Meta:
         model = Client
         fields = ('first_name', 'last_name', 'eng', 'phone', 'email', )
@@ -66,6 +69,10 @@ class FormMessages(forms.ModelForm):
         self.fields['first_name'].help_text = '<br/>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br/>'
         self.fields['city'] = forms.ModelChoiceField(label='City', required=False, queryset=City.objects.all())
         self.fields['pub'].queryset = City.objects.all()
+
+    def clean_bot_catcher(self):
+        if len(self.cleaned_data['bot_catcher']):
+            raise forms.ValidationError('This is a bot')
 
 
 class WidgetForm(forms.Form):
