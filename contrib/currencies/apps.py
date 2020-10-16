@@ -1,5 +1,6 @@
 from django.apps import AppConfig
-
+from django.utils.translation import ugettext_lazy as _
 
 class CurrenciesConfig(AppConfig):
-    name = 'currencies'
+    name = 'contrib.currencies'
+    verbose_name = _('Currencies')

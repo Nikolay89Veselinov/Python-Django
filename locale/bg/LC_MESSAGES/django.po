@@ -1,0 +1,189 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-16 13:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: contrib/abstract_model/apps.py:7
+msgid "Abstract model"
+msgstr "Абстрактен модел"
+
+#: contrib/admin_tricks/apps.py:6
+msgid "Admin tricks app"
+msgstr "Админ трикове апп"
+
+#: contrib/admin_tricks/models.py:34
+#, fuzzy
+#| msgid "Admin tricks app"
+msgid "Admin Trick"
+msgstr "Админ трик"
+
+#: contrib/admin_tricks/models.py:35
+#, fuzzy
+#| msgid "Admin tricks app"
+msgid "Admin Tricks"
+msgstr "Админ трикове апп"
+
+#: contrib/api_lead/apps.py:6 contrib/apps.py:3
+msgid "Api Lead"
+msgstr "Апи лиид"
+
+#: contrib/based_views/apps.py:6 templates/home.html:50
+msgid "Based Views"
+msgstr "Базирани възгледи"
+
+#: contrib/calculator/apps.py:6 templates/home.html:29
+msgid "Calculator"
+msgstr "Калкулатор"
+
+#: contrib/crud_operation/apps.py:6
+msgid "Crud Operations"
+msgstr "КРУД операции"
+
+#: contrib/currencies/apps.py:6 contrib/currencies/models.py:11
+msgid "Currencies"
+msgstr "Валути"
+
+#: contrib/currencies/models.py:10
+#, fuzzy
+#| msgid "Currencies"
+msgid "Currency"
+msgstr "Валутa"
+
+#: contrib/django_exes/apps.py:6
+msgid "Django EXES"
+msgstr "Джанго EXES"
+
+#: contrib/form_wizard/apps.py:6
+msgid "Form Wizard"
+msgstr "Многостъпкова форма"
+
+#: contrib/form_wizard/models.py:6 contrib/form_wizard/models.py:14
+msgid "Име"
+msgstr "Име"
+
+#: contrib/home/apps.py:6
+msgid "Home"
+msgstr "Начална страница"
+
+#: contrib/import_export_file/apps.py:6
+msgid "Import Export File"
+msgstr "Качване и сваляне на файлове"
+
+#: contrib/many_files/apps.py:6
+msgid "Many Files"
+msgstr "Много файлове"
+
+#: contrib/notifications/apps.py:6
+msgid "Notifications"
+msgstr "Известия"
+
+#: contrib/osm/apps.py:6
+msgid "Open Street Map"
+msgstr "Карта"
+
+#: contrib/petstagram/apps.py:6 templates/home.html:53
+msgid "Petstagram"
+msgstr "Петстаграма"
+
+#: contrib/sort_filter/apps.py:6
+msgid "Sort and Filter"
+msgstr "Сортиране и филтриране"
+
+#: contrib/validators/apps.py:6
+msgid "Validators"
+msgstr "Валидатори"
+
+#: template_project/settings.py:205
+msgid "English"
+msgstr ""
+
+#: template_project/settings.py:206
+msgid "Bulgarian"
+msgstr ""
+
+#: template_project/settings.py:218
+msgid "en"
+msgstr ""
+
+#: templates/formtools/wizard/wizard_form.html:22
+msgid "first step"
+msgstr "Първа Стъпка"
+
+#: templates/formtools/wizard/wizard_form.html:23
+msgid "prev step"
+msgstr "Предишна Стъпка"
+
+#: templates/formtools/wizard/wizard_form.html:25
+msgid "submit"
+msgstr "Събмит"
+
+#: templates/home.html:11
+#, fuzzy
+#| msgid "Many Files"
+msgid "Files"
+msgstr "Много файлове"
+
+#: templates/home.html:14
+msgid "Map"
+msgstr "Карта"
+
+#: templates/home.html:17
+#, fuzzy
+#| msgid "Form Wizard"
+msgid "Form_Wizard"
+msgstr "Многостъпкова форма"
+
+#: templates/home.html:20
+msgid "Formset"
+msgstr ""
+
+#: templates/home.html:23
+msgid "Form_message"
+msgstr "Съобщение във форма"
+
+#: templates/home.html:26
+msgid "Filter"
+msgstr "Филтер"
+
+#: templates/home.html:32
+msgid "Widget form"
+msgstr ""
+
+#: templates/home.html:35
+msgid "Exchange rate"
+msgstr "Валутен курс"
+
+#: templates/home.html:38
+#, fuzzy
+#| msgid "Validators"
+msgid "Field Validation"
+msgstr "Валидатори"
+
+#: templates/home.html:41
+msgid "Render URL with arguments"
+msgstr ""
+
+#: templates/home.html:44
+msgid "Reverse views"
+msgstr ""
+
+#: templates/home.html:47
+#, fuzzy
+#| msgid "Crud Operations"
+msgid "CRUD Operations"
+msgstr "КРУД операции"

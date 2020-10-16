@@ -1,0 +1,1 @@
+default_app_config = 'contrib.abstract_model.apps.AbstractModelConfig'

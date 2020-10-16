@@ -1,0 +1,1 @@
+default_app_config = 'contrib.api_lead.apps.ApiLeadConfig'

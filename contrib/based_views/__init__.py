@@ -1,0 +1,1 @@
+default_app_config = 'contrib.based_views.apps.BasedViewsConfig'

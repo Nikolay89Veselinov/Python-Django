@@ -1,0 +1,1 @@
+default_app_config = 'contrib.crud_operation.apps.CrudOperationConfig'

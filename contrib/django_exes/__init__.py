@@ -1,0 +1,1 @@
+default_app_config = 'contrib.django_exes.apps.DjangoExesConfig'

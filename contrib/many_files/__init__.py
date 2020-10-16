@@ -1,0 +1,1 @@
+default_app_config = 'contrib.many_files.apps.ManyFilesConfig'

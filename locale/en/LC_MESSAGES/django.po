@@ -1,0 +1,55 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2020-10-16 11:54+0300\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: contrib/abstract_model/apps.py:7
+msgid ""
+msgstr ""
+
+#: contrib/form_wizard/models.py:6 contrib/form_wizard/models.py:14
+msgid "Име"
+msgstr ""
+
+#: template_project/settings.py:205
+msgid "English"
+msgstr ""
+
+#: template_project/settings.py:206
+msgid "Bulgarian"
+msgstr ""
+
+#: template_project/settings.py:218
+msgid "en"
+msgstr ""
+
+#: templates/formtools/wizard/wizard_form.html:22
+msgid "first step"
+msgstr ""
+
+#: templates/formtools/wizard/wizard_form.html:23
+msgid "prev step"
+msgstr ""
+
+#: templates/formtools/wizard/wizard_form.html:25
+msgid "submit"
+msgstr ""
+
+#: templates/home.html:56
+msgid "Gosho"
+msgstr ""

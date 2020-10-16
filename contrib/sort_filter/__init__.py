@@ -1,0 +1,1 @@
+default_app_config = 'contrib.sort_filter.apps.SortFilterConfig'

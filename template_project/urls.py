@@ -44,36 +44,36 @@ router.register(r'users', UserViewSet)
 router.register(r'items', ItemViewSet)
 
 
-urlpatterns = [
+urlpatterns = i18n_patterns(
     path('api/', include(router.urls), name='apii'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
-    path('en/<str:username>/<slug:article_value>/<str:id>', home, name='home_user_article'),
-    path('en/reverse/', reverse_views, name='reverse_views'),
-    path('en/', home, name='home'),
-    path('en/url_with_arguments/', include('contrib.home.urls'), name='url_with_arguments'),
-    path('en/files/', files, name='files'),
-    path('en/map/', map, name='map'),
-    path('en/wizard/', ContactWizard.as_view(), name='wizard'),
-    path('en/formset/', formset_view, name='formset'),
+    path('<str:username>/<slug:article_value>/<str:id>', home, name='home_user_article'),
+    path('reverse/', reverse_views, name='reverse_views'),
+    path('', home, name='home'),
+    path('url_with_arguments/', include('contrib.home.urls'), name='url_with_arguments'),
+    path('files/', files, name='files'),
+    path('map/', map, name='map'),
+    path('wizard/', ContactWizard.as_view(), name='wizard'),
+    path('formset/', formset_view, name='formset'),
     path('login/', Login.as_view(), name='login'),
     url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
     url(r'^accounts/', include('allauth.urls')),
-    path('en/form_messages/', form_messages, name='form_message'),
-    path('en/widget_form/', widget_form, name='widget_form'),
+    path('form_messages/', form_messages, name='form_message'),
+    path('widget_form/', widget_form, name='widget_form'),
     path(r'captcha/', include('captcha.urls')),
-    path('en/notifications/', get_notification, name='notifications'),
-    path('en/filter/', filter, name='filter'),
-    path('en/get_city/', get_country, name='get_country'),
-    path('en/get_pub/', get_pub, name='get0pub'),
-    path('en/response/', get_response, name='get_response'),
-    path('en/exchange_rate/', exchange_rate, name='Exchange_rate'),
+    path('notifications/', get_notification, name='notifications'),
+    path('filter/', filter, name='filter'),
+    path('get_city/', get_country, name='get_country'),
+    path('get_pub/', get_pub, name='get0pub'),
+    path('response/', get_response, name='get_response'),
+    path('exchange_rate/', exchange_rate, name='Exchange_rate'),
     path('ajax/convert_currencies', convert_currencies, name="convert_currencies"),
-    path('en/validators/', validator, name='validators'),
-    path('en/crud/', include('contrib.crud_operation.urls'), name='crud'),
-    path('en/petstagram/', include('contrib.petstagram.urls'), name='petstagram'),
-    path('en/based_views/', include('contrib.based_views.urls'), name='based_views'),
+    path('validators/', validator, name='validators'),
+    path('crud/', include('contrib.crud_operation.urls'), name='crud'),
+    path('petstagram/', include('contrib.petstagram.urls'), name='petstagram'),
+    path('based_views/', include('contrib.based_views.urls'), name='based_views'),
     # url(r'^locked/$', locked_out, name='locked_out'),
-]
+)
 
 urlpatterns += i18n_patterns(
     url(r'^admin/', admin.site.urls),  # NOQA

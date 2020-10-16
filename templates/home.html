@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load i18n %}
 
 {% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
@@ -7,49 +8,49 @@
 <h1>session {{view_count}}</h1>
 <ol>
     <li>
-        <a href="{% url 'files' %}">Files</a>
+        <a href="{% url 'files' %}">{% trans 'Files' %}</a>
     </li>
     <li>
-        <a href="{% url 'map' %}">Map</a>
+        <a href="{% url 'map' %}">{% trans 'Map' %}</a>
     </li>
     <li>
-        <a href="{% url 'wizard' %}">Form_Wizard</a>
+        <a href="{% url 'wizard' %}">{% trans 'Form_Wizard' %}</a>
     </li>
     <li>
-        <a href="{% url 'formset' %}">Formset</a>
+        <a href="{% url 'formset' %}">{% trans 'Formset' %}</a>
     </li>
     <li>
-        <a href="{% url 'form_message' %}">Form_message</a>
+        <a href="{% url 'form_message' %}">{% trans 'Form_message' %}</a>
     </li>
     <li>
-        <a href="{% url 'filter' %}">Filter</a>
+        <a href="{% url 'filter' %}">{% trans 'Filter' %}</a>
     </li>
     <li>
-        <a href="{% url 'get_response' %}">Calculator</a>
+        <a href="{% url 'get_response' %}">{% trans 'Calculator' %}</a>
     </li>
     <li>
-        <a href="{% url 'widget_form' %}">Widget form</a>
+        <a href="{% url 'widget_form' %}">{% trans 'Widget form' %}</a>
     </li>
     <li>
-        <a href="{% url 'Exchange_rate' %}">Exchange rate</a>
+        <a href="{% url 'Exchange_rate' %}">{% trans 'Exchange rate' %}</a>
     </li>
     <li>
-        <a href="{% url 'validators' %}">Field Validation</a>
+        <a href="{% url 'validators' %}">{% trans 'Field Validation' %}</a>
     </li>
     <li>
-        <a href="{% url 'url_with_arguments' %}">Render URL with arguments</a>
+        <a href="{% url 'url_with_arguments' %}">{% trans 'Render URL with arguments' %}</a>
     </li>
     <li>
-        <a href="{% url 'reverse_views' %}">Reverse views</a>
+        <a href="{% url 'reverse_views' %}">{% trans 'Reverse views' %}</a>
     </li>
     <li>
-        <a href="{% url 'news:news_list_view' %}">CRUD Operations</a>
+        <a href="{% url 'news:news_list_view' %}">{% trans 'CRUD Operations' %}CRUD Operations</a>
     </li>
     <li>
-        <a href="{% url 'articles:article-list' %}">Based Views</a>
+        <a href="{% url 'articles:article-list' %}">{% trans 'Based Views' %}</a>
     </li>
     <li>
-        <a href="{% url 'petstagram:landing_page' %}">Petstagram</a>
+        <a href="{% url 'petstagram:landing_page' %}">{% trans 'Petstagram' %}</a>
     </li>
 </ol>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from django.utils.html import format_html
+from django.utils.translation import ugettext_lazy as _
 
 
 class AdminTricks(models.Model):
@@ -29,6 +30,10 @@ class AdminTricks(models.Model):
     month = models.CharField(max_length=9, choices=MONTH_CHOICES, default='JANUARY')
     active = models.BooleanField(default=True)
     
+    class Meta:
+        verbose_name = _('Admin Trick')
+        verbose_name_plural = _('Admin Tricks')
+
     def __str__(self):
         return self.first_name
     
