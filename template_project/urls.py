@@ -43,6 +43,13 @@ router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
 router.register(r'items', ItemViewSet)
 
+from django.contrib import admin
+from django.utils.translation import gettext_lazy as _
+ 
+admin.site.index_title = _('My Project')
+admin.site.site_header = _('My Site Administration')
+admin.site.site_title = _('Administration')
+
 
 urlpatterns = i18n_patterns(
     path('api/', include(router.urls), name='apii'),
@@ -72,6 +79,8 @@ urlpatterns = i18n_patterns(
     path('crud/', include('contrib.crud_operation.urls'), name='crud'),
     path('petstagram/', include('contrib.petstagram.urls'), name='petstagram'),
     path('based_views/', include('contrib.based_views.urls'), name='based_views'),
+    path('i18n/', include('django.conf.urls.i18n')),
+
     # url(r'^locked/$', locked_out, name='locked_out'),
 )
 
@@ -87,3 +96,6 @@ if settings.DEBUG:
         url(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
         ] + staticfiles_urlpatterns() + urlpatterns
+
+
+
