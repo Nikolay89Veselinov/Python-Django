@@ -145,6 +145,7 @@ MIDDLEWARE = [
 INSTALLED_APPS = [
     # 'admin_interface',
     'colorfield',
+    'polymorphic',
     'djangocms_admin_style',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -155,6 +156,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'django.contrib.messages',
     'cms',
+    'nested_admin',
     'menus',
     'sekizai',
     'captcha',
@@ -186,6 +188,7 @@ INSTALLED_APPS = [
     'contrib.validators',
     'contrib.based_views',
     'contrib.petstagram',
+    'contrib.django_polymorphic',
     'django_extensions',
     'axes',
     'import_export',
