@@ -1,0 +1,9 @@
+{% if country.name == 'Bulgaria world' %}
+    <div class='text-danger'>{{country.name}}</div>
+{% elif country.name == 'Romania world' %}
+    <div class='text-success'>{{country.name}}</div>
+{% elif country.name == 'Greek world' %}
+    <div class='text-primary'>{{country.name}}</div>
+{% else %}
+    <div class='text-green'>{{country.name}}</div>
+{% endif %}

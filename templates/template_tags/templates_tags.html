@@ -1,0 +1,28 @@
+{% load  custom_filter_tags %}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+ 
+<p>{{ stana | replace_text }}</p>
+
+{% simple_tag context=stana text='Custom text' %} <br>
+{% for pub in pubs %}
+    {% simple_tag context=pub text='Custom text' %}<br>
+{% endfor %}
+
+{% for country in countries %}
+    {% inclusion_tag country=country %}
+{% endfor %}
+
+{% include "template_tags/change_color.html" with country=countries.3 %}
+{% for country in countries %}
+{% include "template_tags/change_color.html" with country=country %}
+{% endfor %}
+<h2>Bootstrap form</h2>
+{% bootstrap_tag form=form action='my-action' method='post' %}
+
+<h2>Normal form</h2>
+<form action="/" method="POST"> 
+    {% csrf_token %}
+    {{ form }}
+    <button>Submit</button>
+</form>

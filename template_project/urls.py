@@ -19,7 +19,7 @@ from axes.decorators import axes_form_invalid
 
 from rest_framework import routers, serializers, viewsets
 
-from contrib.home.views import home, url_with_arguments, reverse_views
+from contrib.home.views import home, url_with_arguments, reverse_views, template_tags
 from contrib.many_files.views import files
 from contrib.osm.views import map
 from contrib.django_exes.views import Login
@@ -31,6 +31,7 @@ from contrib.sort_filter.views import filter, get_country, get_pub
 from contrib.calculator.views import get_response
 from contrib.currencies.views import exchange_rate, convert_currencies
 from contrib.validators.views import validator
+from contrib.django_polymorphic.views import AminalsViewSet
 
 
 
@@ -80,7 +81,8 @@ urlpatterns = i18n_patterns(
     path('petstagram/', include('contrib.petstagram.urls'), name='petstagram'),
     path('based_views/', include('contrib.based_views.urls'), name='based_views'),
     path('i18n/', include('django.conf.urls.i18n')),
-
+    path('serializers/polymorphic/', AminalsViewSet.as_view({'get': 'list'}), name='animals_views_set'),
+    path('templatetags/', template_tags, name='template_tags'),
     # url(r'^locked/$', locked_out, name='locked_out'),
 )
 

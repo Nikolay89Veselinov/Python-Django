@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
+
 from .models import News
-from .forms import NewsForm
+from .forms import NewsForm, InstanceForm
 
 def news_list_view(request):
     news = News.objects.all()
@@ -46,13 +47,13 @@ def news_create_view(request):
 def new_update_view(request, id):
     news = News.objects.get(pk=id)
 
+    form = NewsForm(request.POST, request.FILES, instance=news)
     if request.method == 'POST':
-        form = NewsForm(request.POST, request.FILES, instance=news)
         if form.is_valid():
             form.save()
             return redirect('../')
     else:
-        form = NewsForm()
+        form = InstanceForm(instance=news)
 
     context = {
         'form': form,

@@ -4,7 +4,8 @@ from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
 
 from contrib.form_wizard.models import Client
-from contrib.sort_filter.models import City
+from contrib.sort_filter.models import City, Country, Pub
+from contrib.based_views.forms import ArticleForm
 
 def home(request):
     num_visits = request.session.get('num_visits', 0) + 1
@@ -51,3 +52,19 @@ def dynamic_client(request, id, dele):
         f'<p>phone: {obj.phone}</p>'
         f'<p>email: {obj.email}</p>'
     )
+
+def template_tags(request):
+    countries = Country.objects.all()
+    cities = City.objects.all()
+    pubs = Pub.objects.filter(active=True)
+    text = "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."
+    
+    context = {
+        'stana': text,
+        'countries': countries,
+        'cities': cities,
+        'pubs': pubs,
+        'form': ArticleForm,
+    }
+    
+    return render(request, 'template_tags/templates_tags.html', context)
