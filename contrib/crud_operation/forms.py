@@ -30,3 +30,16 @@ class InstanceForm(NewsForm, DisableFormMixin):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         DisableFormMixin.__init__(self)
+
+
+class FilterForm(forms.Form):
+    ORDER_ASC = 'asc'
+    ORDER_DESC = 'desc'
+
+    ORDER_CHOICES = (
+        (ORDER_ASC, 'Ascendint'),
+        (ORDER_DESC, 'Descending'),
+    )
+
+    text = forms.CharField(required=False)
+    order = forms.ChoiceField(choices=ORDER_CHOICES, required=False)

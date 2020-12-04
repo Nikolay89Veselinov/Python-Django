@@ -4,13 +4,30 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavDropdown">
        <ul class="navbar-nav">
-          <a class="nav-link" href="{% url 'petstagram:landing_page' %}">Home</a>
+          <li>
+            <a class="nav-link" href="{% url 'petstagram:landing_page' %}">Home</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{% url 'petstagram:pet_list' %}">All pet photos</a>
+          </li>
+          <li>
+            <a class="nav-link" href="{% url 'petstagram:pet_create' %}">Create Pet</a>
+          </li>
+          {% if user.is_authenticated %}
+            <li class="nav-item">
+               <a class="nav-link" href="{% url 'accounts:user_profile' user.id %}">{{ user.username | upper}}</a>
+            </li>
+            <li class="nav-item">
+               <a class="nav-link" href="{% url 'accounts:signout_user' %}">Sign out</a>
+            </li>          
+         {% else %}
           <li class="nav-item">
-             <a class="nav-link" href="#">Login</a> 
+             <a class="nav-link" href="{% url 'accounts:login' %}">Sing in</a> 
           </li>
           <li class="nav-item">
-             <a class="nav-link" href="#">Sign Up</a>
+             <a class="nav-link" href="{% url 'accounts:sign_up' %}">Sign Up</a>
           </li>
+          {% endif %}
        </ul>
     </div>
  </nav>

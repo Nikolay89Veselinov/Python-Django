@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+{% block content %}
+<h1 class="text-center">Register</h1>
+<div class="row d-flex justify-content-center">
+    <form action="" method='POST' enctype="multipart/form-data">
+        {% csrf_token %}
+        {% bootstrap_form user_form %}
+        {% bootstrap_form profile_form %}
+        {% buttons %}
+        <button class="btn btn-primary">Submit</button>
+        <p>or <a href="{% url 'login_user' %}?next={{ request.GET.next }}">Login</a></p>
+        {% endbuttons %}
+    </form>
+</div>
+{% endblock %}

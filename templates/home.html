@@ -5,8 +5,17 @@
 {% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
 {% block content %}
+{% if user.is_authenticated %}
+    Hello, {{ user.username }}! <a href="{% url 'logout_user' %}">Logout</a>
+{% else %}
+    <a href="{% url 'login_user' %}">Login</a>
+{% endif %}
+
 <h1>session {{view_count}}</h1>
 <ol>
+    <li>
+        <a href="{% url 'register_user' %}">{% trans 'Register User' %}</a>
+    </li>
     <li>
         <a href="{% url 'files' %}">{% trans 'Files' %}</a>
     </li>

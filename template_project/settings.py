@@ -54,18 +54,18 @@ WSGI_APPLICATION = 'template_project.wsgi.application'
 # https://docs.djangoproject.com/en/2.1/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
-    {
-        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-    },
-    {
-        'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-    },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    # },
+    # {
+    #     'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    # },
 ]
 
 
@@ -83,6 +83,7 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+LOGIN_URL = '/loginuser/'
 
 
 # Static files (CSS, JavaScript, Images)
@@ -163,6 +164,7 @@ INSTALLED_APPS = [
     'treebeard',
     'djangocms_text_ckeditor',
     'filer',
+    'bootstrap4',
     'easy_thumbnails',
     'djangocms_column',
     'djangocms_file',
@@ -186,6 +188,7 @@ INSTALLED_APPS = [
     'contrib.currencies',
     'contrib.admin_tricks',
     'contrib.validators',
+    'contrib.accounts',
     'contrib.based_views',
     'contrib.petstagram',
     'contrib.django_polymorphic',
@@ -250,7 +253,7 @@ DATABASES = {
         'CONN_MAX_AGE': 0,
         'ENGINE': 'django.db.backends.sqlite3',
         'HOST': 'localhost',
-        'NAME': 'template_projectdb',
+        'NAME': 'projectdb',
         'USER': 'template_project',
         'PASSWORD': 'template_project',
         'PORT': '',
@@ -296,3 +299,5 @@ REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [],
     'DEFAULT_PERMISSION_CLASSES': [],
 }
+
+# LOGIN_REDIRECT_URL = '/'

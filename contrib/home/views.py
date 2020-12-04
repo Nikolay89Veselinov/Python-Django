@@ -1,11 +1,19 @@
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.shortcuts import get_object_or_404
 from django.http import HttpResponse, HttpResponseRedirect, Http404
 from django.urls import reverse
+from django.contrib.auth import login, logout, authenticate
+from django.http import HttpResponse
+from django.db import transaction
 
 from contrib.form_wizard.models import Client
 from contrib.sort_filter.models import City, Country, Pub
 from contrib.based_views.forms import ArticleForm
+from .forms import RegisterForm, UserCreationForm, ProfileForm, LoginForm
+
+def get_redirect_url(params):
+    redirect_url = params.get('return_url')
+    return redirect_url if redirect_url else 'home'
 
 def home(request):
     num_visits = request.session.get('num_visits', 0) + 1
@@ -68,3 +76,68 @@ def template_tags(request):
     }
     
     return render(request, 'template_tags/templates_tags.html', context)
+
+@transaction.atomic
+def register_user(request):
+    # import ipdb; ipdb.set_trace()
+
+    if request.method == 'GET':
+        context = {
+            'profile_form': ProfileForm(),
+            # 'user_form': RegisterForm(),
+            'user_form': UserCreationForm(),
+        }
+    else:
+        # user_form = RegisterForm(request.POST)
+        profile_form = ProfileForm(request.POST, request.FILES)
+        user_form = UserCreationForm(request.POST)
+
+        if user_form.is_valid() and profile_form.is_valid():
+            user = user_form.save()
+            profile = profile_form.save(commit=False)
+            profile.user = user
+            profile.save()
+            login(request, user, backend='django.contrib.auth.backends.ModelBackend')
+            return HttpResponse('Create User SUCCESS!'
+                                '<br>'
+                               f'<a href="/">Return to home page</a>'
+            )
+
+        context = {
+            # 'user_form': RegisterForm(),
+            'user_form': UserCreationForm(),
+            'profile_form': ProfileForm(),
+        }
+
+    return render(request, 'register_user.html', context)
+
+
+def login_user(request):
+    # import ipdb; ipdb.set_trace()
+    if request.method == 'GET':
+        context = {
+            'login_form': LoginForm()
+        }
+        return render(request, 'login.html', context)
+    else:
+        login_form = LoginForm(request.POST)
+        return_url = get_redirect_url(request.POST)
+        if login_form.is_valid():
+            username = login_form.cleaned_data['username']
+            password = login_form.cleaned_data['password']
+            user = authenticate(request, username=username, password=password)
+            if user:
+                login(request, user)
+                return redirect(return_url)
+        context = {
+            'login_form': login_form
+        }
+        return render(request, 'login.html', context)
+    # if request.user.is_authenticated:
+    #     login(request, request.user)
+    #     return redirect('home')
+    # return redirect('home')
+
+def logout_user(request):
+    logout(request)
+    return redirect('home')

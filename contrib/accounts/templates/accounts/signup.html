@@ -1,0 +1,18 @@
+{% extends 'base_petstagram.html' %}
+{% block content%}
+    <div class="container-fluid" style="width:55%; border: 1px solid;">
+        <div class="row">
+            <div class="col-lg-3"></div>
+            <div class="col-lg-6">
+                <form action="" method="POST">
+                    <h2>Sign up</h2>
+                    {% csrf_token %}
+                    {{ form }}
+                    <button class="btn btn-primary" type="submit">Sign up</button>
+                    <span>Have an account?<a href="" style="color:orange">Sign in</a></span>
+                </form>
+            </div>
+            <div class="col-lg-3"></div>
+        </div>
+    </div>
+{% endblock content%}

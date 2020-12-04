@@ -19,7 +19,8 @@ from axes.decorators import axes_form_invalid
 
 from rest_framework import routers, serializers, viewsets
 
-from contrib.home.views import home, url_with_arguments, reverse_views, template_tags
+from contrib.home.views import home, url_with_arguments, reverse_views,\
+                               template_tags, login_user, logout_user, register_user
 from contrib.many_files.views import files
 from contrib.osm.views import map
 from contrib.django_exes.views import Login
@@ -53,8 +54,10 @@ admin.site.site_title = _('Administration')
 
 
 urlpatterns = i18n_patterns(
-    path('api/', include(router.urls), name='apii'),
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
+    url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
+    url(r'^accounts/', include('allauth.urls')),
+    path('api/', include(router.urls), name='apii'),
     path('<str:username>/<slug:article_value>/<str:id>', home, name='home_user_article'),
     path('reverse/', reverse_views, name='reverse_views'),
     path('', home, name='home'),
@@ -64,8 +67,7 @@ urlpatterns = i18n_patterns(
     path('wizard/', ContactWizard.as_view(), name='wizard'),
     path('formset/', formset_view, name='formset'),
     path('login/', Login.as_view(), name='login'),
-    url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
-    url(r'^accounts/', include('allauth.urls')),
+    path('login/', Login.as_view(), name='login'),
     path('form_messages/', form_messages, name='form_message'),
     path('widget_form/', widget_form, name='widget_form'),
     path(r'captcha/', include('captcha.urls')),
@@ -83,6 +85,11 @@ urlpatterns = i18n_patterns(
     path('i18n/', include('django.conf.urls.i18n')),
     path('serializers/polymorphic/', AminalsViewSet.as_view({'get': 'list'}), name='animals_views_set'),
     path('templatetags/', template_tags, name='template_tags'),
+    path('loginuser/', login_user, name='login_user'),
+    path('logoutuser/', logout_user, name='logout_user'),
+    path('registeruser/', register_user, name='register_user'),
+    path('accounts/', include('contrib.accounts.urls')),
+
     # url(r'^locked/$', locked_out, name='locked_out'),
 )
 

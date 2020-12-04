@@ -1,4 +1,5 @@
 from cms.models.pluginmodel import CMSPlugin
+from django.contrib.auth.models import User
 
 from django.db import models
 
@@ -11,3 +12,11 @@ class CategoryPlugin(CMSPlugin):
 
     def __str__(self):
         return self.title
+
+class UserProfile(models.Model):
+    date_of_birthday = models.DateTimeField()
+    profile_image = models.ImageField(upload_to='profiles',)
+    user = models.OneToOneField(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return self.user

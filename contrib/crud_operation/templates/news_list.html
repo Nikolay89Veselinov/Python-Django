@@ -1,9 +1,18 @@
 <p>NEWS</p>
+<form action="" method="GET">
+    {% csrf_token %}
+    {{ filter_form }}
+    <button>Filter</button>
+</form>
 <ul>
 {% for news in news %}
     <ol>
         <li>
+            {% if news.user_created %}
+            <p> <a href="{{ news.get_absolute_url }}">{{ news.title }}</a> created by login user: {{ user }}</p>
+            {% else %}
             <a href="{{ news.get_absolute_url }}">{{ news.title }}</a>
+            {% endif %}
         </li>
     </ol>
     {% endfor %}
