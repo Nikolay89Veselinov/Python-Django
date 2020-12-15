@@ -68,6 +68,11 @@ AUTH_PASSWORD_VALIDATORS = [
     # },
 ]
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ],
+}
 
 # Internationalization
 # https://docs.djangoproject.com/en/2.1/topics/i18n/
@@ -198,6 +203,7 @@ INSTALLED_APPS = [
     'allauth.account',
     'osm_field',
     'rest_framework',
+    'rest_framework.authtoken',
     'location_field.apps.DefaultConfig',
     'contrib.many_files.apps.ManyFilesConfig',
     'contrib.api_lead',

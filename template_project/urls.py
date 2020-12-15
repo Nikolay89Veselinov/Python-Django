@@ -25,7 +25,7 @@ from contrib.many_files.views import files
 from contrib.osm.views import map
 from contrib.django_exes.views import Login
 from contrib.django_exes.forms import AxesLoginForm
-from contrib.api_lead.views import UserViewSet, ItemViewSet
+from contrib.api_lead.views import UserViewSet, ItemListApiView, ItemDetailsApiView, api
 from contrib.form_wizard.views import ContactWizard, formset_view, form_messages, widget_form
 from contrib.notifications.views import get_notification
 from contrib.sort_filter.views import filter, get_country, get_pub
@@ -33,7 +33,7 @@ from contrib.calculator.views import get_response
 from contrib.currencies.views import exchange_rate, convert_currencies
 from contrib.validators.views import validator
 from contrib.django_polymorphic.views import AminalsViewSet
-
+from rest_framework.authtoken.views import obtain_auth_token
 
 
 LoginView.dispatch = method_decorator(axes_dispatch)(LoginView.dispatch)
@@ -43,7 +43,7 @@ admin.autodiscover()
 
 router = routers.DefaultRouter()
 router.register(r'users', UserViewSet)
-router.register(r'items', ItemViewSet)
+# router.register(r'items', ItemListApiView)
 
 from django.contrib import admin
 from django.utils.translation import gettext_lazy as _
@@ -57,7 +57,14 @@ urlpatterns = i18n_patterns(
     url(r'^sitemap\.xml$', sitemap, {'sitemaps': {'cmspages': CMSSitemap}}),
     url(r'^accounts/login/$', LoginView.as_view(form_class=AxesLoginForm), name='account_login'),
     url(r'^accounts/', include('allauth.urls')),
+
+    path('rest-api/', include('rest_framework.urls')),
     path('api/', include(router.urls), name='apii'),
+    path('api-items/', ItemListApiView.as_view(), name='items'),
+    path('api-items/<int:pk>/', ItemDetailsApiView.as_view(), name='items detail'),
+    path('api-js/', api, name='api-js'),
+    path('api-token-auth/', obtain_auth_token, name='api_token_auth'),
+
     path('<str:username>/<slug:article_value>/<str:id>', home, name='home_user_article'),
     path('reverse/', reverse_views, name='reverse_views'),
     path('', home, name='home'),
@@ -105,6 +112,3 @@ if settings.DEBUG:
         url(r'^media/(?P<path>.*)$', serve,
             {'document_root': settings.MEDIA_ROOT, 'show_indexes': True}),
         ] + staticfiles_urlpatterns() + urlpatterns
-
-
-

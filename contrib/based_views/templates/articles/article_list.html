@@ -1,4 +1,11 @@
+<h1>{{ heading_text }}</h1>
 {% for instance in object_list %}
 <p>{{ instance.id }} - <a href="{{ instance.get_absolute_url }}">{{ instance.title }}</a></p>
 {% endfor %}
+{% if page_obj.has_previous %}
+<a href="?page={{ page_obj.previous_page_number }}">Prev</a>
+{% endif %}
+{% if page_obj.has_next %}
+<a href="?page={{ page_obj.next_page_number }}">Next</a>    
+{% endif %}
 <a href="../">Back</a>
