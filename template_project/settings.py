@@ -258,18 +258,18 @@ CMS_PLACEHOLDER_CONF = {
 
 }
 
-# DATABASES = {
-#     'default': {
-#         'CONN_MAX_AGE': 0,
-#         'ENGINE': 'django.db.backends.sqlite3',
-#         'HOST': 'localhost',
-#         'NAME': 'projectdb',
-#         'USER': 'template_project',
-#         'PASSWORD': 'template_project',
-#         'PORT': '',
-#         'USER': ''
-#     }
-# }
+DATABASES = {
+    'default': {
+        'CONN_MAX_AGE': 0,
+        'ENGINE': 'django.db.backends.sqlite3',
+        'HOST': 'localhost',
+        'NAME': 'projectdb',
+        'USER': 'template_project',
+        'PASSWORD': 'template_project',
+        'PORT': '',
+        'USER': ''
+    }
+}
 
 # DATABASES = {
 #     'default': {
@@ -281,15 +281,15 @@ CMS_PLACEHOLDER_CONF = {
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'template_projectdb',
-        'USER': 'template_project',
-        'PASSWORD': 'template_project',
-        'PORT': '5432',
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'template_projectdb',
+#         'USER': 'template_project',
+#         'PASSWORD': 'template_project',
+#         'PORT': '5432',
+#     }
+# }
 
 MIGRATION_MODULES = {
 
