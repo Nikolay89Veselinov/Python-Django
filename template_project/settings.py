@@ -101,7 +101,7 @@ LOGIN_URL = '/loginuser/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-STATIC_ROOT = os.path.join(DATA_DIR, 'static')
+STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, 'template_project', 'static'),
@@ -258,16 +258,36 @@ CMS_PLACEHOLDER_CONF = {
 
 }
 
+# DATABASES = {
+#     'default': {
+#         'CONN_MAX_AGE': 0,
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'HOST': 'localhost',
+#         'NAME': 'projectdb',
+#         'USER': 'template_project',
+#         'PASSWORD': 'template_project',
+#         'PORT': '',
+#         'USER': ''
+#     }
+# }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'PORT': os.environ.get('DB_PORT'),
+#     }
+# }
+
 DATABASES = {
     'default': {
-        'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
-        'NAME': 'projectdb',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'template_projectdb',
         'USER': 'template_project',
         'PASSWORD': 'template_project',
-        'PORT': '',
-        'USER': ''
+        'PORT': '5432',
     }
 }
 
