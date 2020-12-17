@@ -271,25 +271,25 @@ CMS_PLACEHOLDER_CONF = {
 #     }
 # }
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'PORT': os.environ.get('DB_PORT'),
-    }
-}
-
 # DATABASES = {
 #     'default': {
 #         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'template_projectdb',
-#         'USER': 'template_project',
-#         'PASSWORD': 'template_project',
-#         'PORT': '5432',
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'PORT': os.environ.get('DB_PORT'),
 #     }
 # }
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'template_projectdb',
+        'USER': 'template_project',
+        'PASSWORD': 'template_project',
+        'PORT': '5432',
+    }
+}
 
 MIGRATION_MODULES = {
 
