@@ -1,0 +1,28 @@
+version: '3'
+
+services:
+    web:
+        image: nikolay89/test_project
+        build:
+            context: .
+        # command: 'gunicorn template_project.wsgi --bind 0.0.0.0:8000'
+        command: 'python manage.py runserver 0.0.0.0:8000'
+        ports:
+            - "8000:8000"
+        environment:
+            - ALLOWED_HOST=localhost
+            - DEBUG=false
+            - DB_NAME=template_projectdb
+            - DB_USER=template_project
+            - DB_PASSWORD=template_project
+            - DB_host=db
+            - DB_PORT=5432
+        depends_on:
+            - db
+    db:
+        image: postgres
+        environment:
+            - POSTGRES_USER=template_project
+            - POSTGRES_PASSWORD=template_project
+            - POSTGRES_DB=template_projectdb
+            
