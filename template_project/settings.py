@@ -101,6 +101,7 @@ LOGIN_URL = '/loginuser/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
+# STATIC_ROOT = '/tmp/staticfiles'
 STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
 
 STATICFILES_DIRS = (
@@ -271,25 +272,26 @@ CMS_PLACEHOLDER_CONF = {
 #     }
 # }
 
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': os.environ.get('DB_NAME'),
-#         'USER': os.environ.get('DB_USER'),
-#         'PASSWORD': os.environ.get('DB_PASSWORD'),
-#         'PORT': os.environ.get('DB_PORT'),
-#     }
-# }
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'template_projectdb',
-        'USER': 'template_project',
-        'PASSWORD': 'template_project',
-        'PORT': '5432',
+        'NAME': os.environ.get('DB_NAME'),
+        'USER': os.environ.get('DB_USER'),
+        'PASSWORD': os.environ.get('DB_PASSWORD'),
+        'HOST': os.environ.get('DB_host'),
+        'PORT': os.environ.get('DB_PORT'),
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'template_projectdb',
+#         'USER': 'template_project',
+#         'PASSWORD': 'template_project',
+#         'PORT': '5432',
+#     }
+# }
 
 MIGRATION_MODULES = {
 

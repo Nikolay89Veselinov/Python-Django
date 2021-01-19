@@ -1,8 +1,7 @@
-from django.shortcuts import render, redirect
-from django.views.generic.edit import FormView
+from django.http import JsonResponse
+from django.shortcuts import render
 from django.forms import formset_factory
 from django.contrib import messages
-from django.http import HttpResponseRedirect
 
 from formtools.wizard.views import SessionWizardView
 
@@ -42,16 +41,28 @@ def formset_view(request):
     context['formset']= formset 
     return render(request, "formset.html", context)
 
-
 def form_messages(request):
-    obj = Client.objects.get(id=3)
+    obj = Client.objects.get(id=60)
+
+    if request.is_ajax():
+        form = FormMessages(request.GET)
+        captcha_error = True if 'captcha' in form.errors else False
+        response = {
+            "captcha_error": captcha_error,
+        }
+        return JsonResponse(response)
 
     if request.method == 'POST':
-        form = FormMessages(request.POST, instance=obj)
+        form = FormMessages(request.POST, request.FILES)
+        aa = form.errors['captcha']
+        aa.clear()
+        if 'captcha' in form.errors:
+            del form.errors['captcha']
         if form.is_valid():
             form.save()
             messages.success(request, 'Form submission successful')
     else:
+        # form = FormMessages(instance=obj)
         form = FormMessages()
     return render(request, 'form_message.html', {'form': form})
 

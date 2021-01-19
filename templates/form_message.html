@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<form method="POST"> 
+<form name="myFormName" id='myFormName' method="POST" enctype="multipart/form-data"> 
     {% csrf_token %} 
-    {{ form.as_p }} 
-    <input type="submit" value="Submit"> 
+    {{ form.as_p }}
+    <input id='btn' type="submit" value="Submit">
     {% if messages %}
 <ul class="messages">
     {% for message in messages %}
@@ -12,7 +12,7 @@
     {% endfor %}
 </ul>
 {% endif %}
-</form> 
+</form>
 <div>
 <!-- {% for field in form %}
 <div class="fieldWrapper">
@@ -67,3 +67,47 @@
     }
 </style>
 {% endblock %}
+
+{% block javascript %}
+<script>
+jQuery(document).ready(function(jQ){
+    jQ('#myFormName').on('submit', function(event) {
+        event.preventDefault();
+        $.ajax({
+            type: 'GET',
+            url: '/form_messages/',
+            data: $('#myFormName').serialize(),
+            success: function (response) {
+                if (response.captcha_error === true) {
+                } else {
+                    $(this).unbind(event)
+                    document.myFormName.submit();
+                }
+            }
+        });
+    });
+});
+
+$(function() {
+    // Add refresh button after field (this can be done in the template as well)
+    $('img.captcha').after(
+            $('<a href="#void" class="captcha-refresh">Refresh</a>')
+            );
+
+    // Click-handler for the refresh-link
+    $('.captcha-refresh').click(function(){
+        var $form = $(this).parents('form');
+        var url = location.protocol + "//" + window.location.hostname + ":"
+                  + location.port + "/captcha/refresh/";
+
+        // Make the AJAX-call
+        $.getJSON(url, {}, function(json) {
+            $form.find('input[name="captcha_0"]').val(json.key);
+            $form.find('img.captcha').attr('src', json.image_url);
+        });
+
+        return false;
+    });
+});
+ </script>
+{% endblock javascript %}
