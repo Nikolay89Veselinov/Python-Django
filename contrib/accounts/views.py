@@ -20,13 +20,33 @@ def user_profile(request, id=None):
             'profile': UsersProfile.objects.get(user_id=user.id),
             'form': UsersProfileForm(),
         }
-
         return render(request, 'accounts/user_profile.html', context)
     else:
         form = UsersProfileForm(request.POST, request.FILES, instance=UsersProfile.objects.get(user_id=user.id))
         if form.is_valid():
             form.save()
             return redirect('accounts:current_user_profile')
+
+
+class UserProfileViews(views.UpdateView):
+    template_name = 'accounts/user_profile.html'
+    form_class = UsersProfileForm
+    model = UsersProfile
+    context_object_name = 'profile'
+    success_url = reverse_lazy('accounts:current_user_profile')
+
+    def get_object(self, queryset=None):
+        id = self.kwargs.get('id', None)
+        user = self.request.user if id is None else User.objects.get(pk=id)
+        return user
+
+    def get_context_data(self, **kwargs):
+        # import ipdb; ipdb.set_trace()
+        context = super().get_context_data(**kwargs)
+        context['profile_user'] = self.get_object()
+        context['pets'] = self.get_object().pet_set.all()
+        return context
+    
 
 def sign_up(request):
     if request.method == 'GET': 

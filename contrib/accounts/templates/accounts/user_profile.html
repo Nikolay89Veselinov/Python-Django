@@ -2,7 +2,7 @@
 {% load static %}
 {% block content%}
 <div class="text-center">
-    <h1>Hello, {{ user.username }}!</h1>
+    <h1>Hello, {{ profile_user.username }}!</h1>
     <h5>This is your profile</h5>
     {% if profile.profile_picture %}
     <img class="rounded-circle nb-3" src="{{ profile.profile_picture.url }}" alt="Generic placeholder image" width="140" height="140">

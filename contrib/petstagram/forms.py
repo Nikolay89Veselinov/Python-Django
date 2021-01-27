@@ -1,4 +1,5 @@
 from django import forms
+from django.urls.conf import include
 
 from .models import Comment, Pet
 
@@ -12,6 +13,12 @@ class CommenForm(forms.Form):
         )
     )
 
+class CommenViewsForm(forms.ModelForm):
+    class Meta:
+        model = Comment
+        fields = ('text', )
+
+
 class PetForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -21,4 +28,4 @@ class PetForm(forms.ModelForm):
     
     class Meta:
         model = Pet
-        fields = '__all__'
+        exclude = ('user',)
