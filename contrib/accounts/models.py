@@ -7,4 +7,4 @@ class UsersProfile(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.user
+        return self.user.__str__()

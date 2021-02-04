@@ -4,7 +4,8 @@ from .models import Pet, Like, Comment
 
 @admin.register(Pet)
 class PetAdmin(admin.ModelAdmin):
-    list_display = ('id', 'type', 'name', 'age', 'description', 'image_url')
+    list_display = ('id', 'type', 'name', 'age', 'description', 'slug', 'image_url')
+    # prepopulated_fields = {"slug": ("name",)}
 
 
 @admin.register(Like)

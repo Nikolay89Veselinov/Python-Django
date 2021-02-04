@@ -10,7 +10,11 @@ class SignUpForm(UserCreationForm, BootstrapFormMixin):
         super().__init__(*args, **kwargs)
         self.settup_form()
 
-class UsersProfileForm(forms.ModelForm):
+class UsersProfileForm(forms.ModelForm, BootstrapFormMixin):
     class Meta:
         model = UsersProfile
         fields = ('profile_picture',)
+    
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.settup_form()

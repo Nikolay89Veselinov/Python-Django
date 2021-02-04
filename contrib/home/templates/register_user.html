@@ -9,8 +9,9 @@
         {% bootstrap_form profile_form %}
         {% buttons %}
         <button class="btn btn-primary">Submit</button>
-        <p>or <a href="{% url 'login_user' %}?next={{ request.GET.next }}">Login</a></p>
+        <!-- <p>or <a href="{% url 'login_user' %}?next={{ request.GET.next }}">Login</a></p> -->
+        <p>or <a href="{% url 'login_user' %}?next={% url 'petstagram:landing_page' %}">Login</a></p>
         {% endbuttons %}
     </form>
 </div>
-{% endblock %}
+{% endblock %}{% url 'petstagram:landing_page' %}

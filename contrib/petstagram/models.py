@@ -1,4 +1,5 @@
 from django.db import models
+from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
 
@@ -16,7 +17,7 @@ class Pet(models.Model):
         (PARROT, 'Parrot'),
         (UNKNOWN, 'Unknown'),
     )
-
+    slug = models.SlugField(editable=False)
     type = models.CharField(max_length=6, choices=PET_TYPES_CHOICES, default=UNKNOWN)
     name = models.CharField(max_length=6)
     age = models.IntegerField(default=0)
@@ -29,6 +30,10 @@ class Pet(models.Model):
 
     def get_absolute_url(self):
         return reverse('petstagram:pet_detail', kwargs={'pk': self.id})
+
+    def save(self, *args, **kwargs):
+        self.slug = slugify(self.name)
+        return super().save(*args, **kwargs)
 
 
 class Like(models.Model):

@@ -204,6 +204,9 @@ class CreatePetViews(auth_mixins.LoginRequiredMixin, CreateView):
         success_url = reverse_lazy('petstagram:pet_detail', kwargs={'id': self.object.id})
         return success_url
 
+    def get_login_url(self):
+        return str('accounts:login')
+
     def form_valid(self, form):
         pet = form.save(commit=False)
         pet.user = self.request.user
