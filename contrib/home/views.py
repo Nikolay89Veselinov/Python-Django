@@ -19,6 +19,7 @@ def home(request):
     num_visits = request.session.get('num_visits', 0) + 1
     request.session['num_visits'] = num_visits
     print('test git commit 1')
+    print('test git commit 2')
     if num_visits >= 5:
         del(request.session['num_visits'])
     context = {
