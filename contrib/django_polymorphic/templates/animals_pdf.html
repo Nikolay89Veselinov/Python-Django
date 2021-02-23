@@ -1,0 +1,43 @@
+{% extends "pdfs/base.html" %}
+
+{% block title %}Animal{% endblock %}
+
+{% block body %}
+<h1>Animal</h1>
+<table>
+    <tr>
+        {% if animal.breed %}
+        <td>
+            Breed: 
+        </td>
+        <td>
+            {{animal.breed}}
+        </td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td>
+            Name: 
+        </td>
+        <td>
+            {{animal.name}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Age: 
+        </td>
+        <td>
+            {{animal.age}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Abilities: 
+        </td>
+        <td>
+            {{animal.abilities}}
+        </td>
+    </tr>
+</table>
+{% endblock %}

@@ -1,0 +1,22 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}{% endblock %}</title>
+  <style type="text/css">
+  h1 {
+    color:red;
+  }
+  table {
+    width: 100%;
+  }
+  </style>
+</head>
+<body>
+{% if request %}
+  <div class="pdf-header">
+    {% include header_template|default:"header_pdf.html" %}
+  </div>
+{% endif %}
+{% block body %}{% endblock %}
+</body>
+</html>

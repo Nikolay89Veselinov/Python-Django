@@ -1,0 +1,49 @@
+{% extends 'base_petstagram.html' %}
+
+{% block content %}
+<h1>Pet</h1>
+<table>
+    <tr>
+        {% if pet.type %}
+        <td>
+            Breed: 
+        </td>
+        <td>
+            {{pet.type}}
+        </td>
+        {% endif %}
+    </tr>
+    <tr>
+        <td>
+            Name: 
+        </td>
+        <td>
+            {{pet.name}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Age: 
+        </td>
+        <td>
+            {{pet.age}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Description: 
+        </td>
+        <td>
+            {{pet.description}}
+        </td>
+    </tr>
+    <tr>
+        <td>
+            User: 
+        </td>
+        <td>
+            {{pet.user}}
+        </td>
+    </tr>
+</table>
+{% endblock %}

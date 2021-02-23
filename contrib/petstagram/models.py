@@ -1,7 +1,17 @@
+import pdfkit
+
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
 from django.contrib.auth.models import User
+
+from django.template.loader import render_to_string
+from django.utils.safestring import mark_safe
+
+
+def render_pdf(template, context):
+    html = render_to_string(template, context)
+    return pdfkit.from_string(html, False)
 
 
 class Pet(models.Model):
@@ -34,6 +44,22 @@ class Pet(models.Model):
     def save(self, *args, **kwargs):
         self.slug = slugify(self.name)
         return super().save(*args, **kwargs)
+
+    # def get_admin_url(obj):
+    #     return reverse('admin:%s_%s_change' % (obj._meta.app_label,  obj._meta.model_name),  args=[obj.id] )
+
+    def get_admin_url(obj):
+        url = reverse('admin:%s_%s_change' % (obj._meta.app_label,  obj._meta.model_name),  args=[obj.id])
+        return mark_safe('<a href="%spdf">Download pdf</a>' % (url))
+
+    @property
+    def results_pdf_template(self):
+        return 'pet_pdf.html'
+
+    def results_pdf(self, template=None):
+        if template is None:
+            template = self.results_pdf_template
+        return render_pdf(template, {'pet': self})
 
 
 class Like(models.Model):
