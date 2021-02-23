@@ -32,6 +32,17 @@ class PetsListViews(ListView):
     template_name = 'partials/pet_list.html'
     context_object_name = 'pets'
 
+class SearchResultsView(ListView):
+    model = Pet
+    template_name = 'search_results.html'
+
+    def get_queryset(self): 
+        query = self.request.GET.get('q')
+        object_list = Pet.objects.filter(
+            name=query
+        )
+        return object_list
+
 @login_required
 def pet_detail(request, id):
     pet = Pet.objects.get(pk=id)

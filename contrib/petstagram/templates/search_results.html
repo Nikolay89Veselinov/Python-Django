@@ -1,0 +1,18 @@
+<h1>Search Results</h1>
+
+{% if object_list %}
+{% for pet in object_list %}
+<div class="col-xl-4">
+    <div class="card" style="width: 18rem;">
+        <img src="{{ pet.image_url.url }}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">{{ pet.type }} {{ pet.name }}, Age: {{ pet.age }}</h5>
+            <p class="card-text">{{ pet.description }}</p>
+            <a href="{% url 'petstagram:pet_detail' pet.pk pet.slug %}" class="btn btn-primary">See details</a>
+        </div>
+    </div>
+</div>
+{% endfor %}
+{% else %}
+<h2>No results found!!!</h2>
+{% endif %}

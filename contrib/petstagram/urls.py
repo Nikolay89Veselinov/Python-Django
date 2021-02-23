@@ -1,4 +1,6 @@
 from django.urls import path
+from .views import SearchResultsView
+
 
 from .views import CreatePetViews, EditPetViews, LandingPageViews, PetCommentViews,\
                 PetDedailsView, PetDeleteViews, PetLikeViews, PetsListViews, \
@@ -8,6 +10,7 @@ app_name = 'petstagram'
 
 
 urlpatterns = [
+    path('search/', SearchResultsView.as_view(), name='search_results'),
     # path('', landing_page, name='landing_page'),
     path('', LandingPageViews.as_view(), name='landing_page'),
     # path('pets/', pet_list, name='pet_list'),
