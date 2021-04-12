@@ -24,6 +24,7 @@ diff-match-patch==20181111
 dj-database-url==0.5.0
 Django==2.1.13
 django-admin-interface==0.13.0
+django-admin-jqueryui==1.8.22
 django-allauth==0.40.0
 django-appconf==1.0.3
 django-axes==5.0.19
@@ -54,7 +55,7 @@ django-sekizai==1.0.0
 django-simple-captcha==0.5.12
 django-treebeard==4.3
 django-utils-six==2.0
-djangocms-admin-style==1.4.0
+djangocms-admin-style==1.2.0
 djangocms-attributes-field==1.1.0
 djangocms-column==1.9.0
 djangocms-file==2.3.0
@@ -104,6 +105,7 @@ odfpy==1.4.1
 openpyxl==3.0.3
 packaging==20.7
 parso==0.5.1
+pdfkit==0.6.1
 pexpect==4.7.0
 pickleshare==0.7.5
 Pillow==6.2.0
@@ -111,6 +113,7 @@ pip-review==1.1.0
 pkginfo==1.6.1
 polls @ git+http://git@github.com/divio/django-polls.git@8caed34261c1e6bbf0eeb8aeb2cb7e7b980299bb
 prompt-toolkit==2.0.10
+psycopg2==2.8.6
 psycopg2-binary==2.8.6
 ptyprocess==0.6.0
 pyasn1==0.4.8
