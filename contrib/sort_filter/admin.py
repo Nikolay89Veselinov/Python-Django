@@ -4,7 +4,7 @@ from .models import Country, City, Pub
 
 @admin.register(Country)
 class CountryAdmin(admin.ModelAdmin):
-    list_display = ('name',)
+    list_display = ('id', 'name',)
 
 
 @admin.register(City)

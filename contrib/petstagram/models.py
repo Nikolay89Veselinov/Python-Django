@@ -60,7 +60,7 @@ class Pet(models.Model):
         if template is None:
             template = self.results_pdf_template
         return render_pdf(template, {'pet': self})
-
+        # return pdfkit.from_string(render_to_string(template, {'pet': self}), False)
 
 class Like(models.Model):
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
