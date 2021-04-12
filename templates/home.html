@@ -1,10 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
-{% load i18n %}
+{% load i18n sekizai_tags %}
 
 {% block "extra-js" %}<link href="{% static 'sass_css/home.css' %}" rel="stylesheet" type="text/css" />{% endblock %}
 
 {% block content %}
+<input type="text" id="time" style="border: 3px solid red; text-align: center">
+
+<div id="result"></div>
 {% if user.is_authenticated %}
     Hello, {{ user.username }}! <a href="{% url 'logout_user' %}">Logout</a>
 {% else %}
@@ -65,4 +68,29 @@
         <a href="{% url 'template_tags' %}">Template tags</a>
     </li>
 </ol>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    window.onload = function() {
+        countdown(30);
+    }
+    function countdown(sec){
+        let minutes = Math.floor(sec / 60);
+        let seconds = sec % 60;
+        let time = (minutes < 10 ? '0' + minutes : minutes) + ':' +
+                (seconds < 10 ? '0' + seconds : seconds)
+        document.getElementById('time').value = time
+        setInterval(() => {
+            if (sec > 0) {
+                sec--
+                minutes = Math.floor(sec / 60);
+                seconds = sec % 60;
+                time = (minutes < 10 ? '0' + minutes : minutes) + ':' +
+                        (seconds < 10 ? '0' + seconds : seconds)
+                document.getElementById('time').value = time
+            }
+        }, 1000)
+    }
+</script>
 {% endblock %}
