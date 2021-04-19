@@ -33,7 +33,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'template-project-demo.herokuapp.com',
-    '*',
+    "*",
 ]
 
 
@@ -102,17 +102,12 @@ LOGIN_URL = '/loginuser/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-# STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
+# STATIC_ROOT = '/tmp/staticfiles'
+STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
 
-PROJECT_ROOT = os.path.abspath(os.path.dirname(__file__))
-STATIC_ROOT = '/tmp/staticfiles'
 STATICFILES_DIRS = (
-    os.path.join(PROJECT_ROOT,'static/'),
+    os.path.join(BASE_DIR, 'template_project', 'static'),
 )
-
-# STATICFILES_DIRS = (
-#     os.path.join(BASE_DIR, 'template_project', 'static'),
-# )
 SITE_ID = 1
 
 
