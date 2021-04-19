@@ -273,14 +273,28 @@ CMS_PLACEHOLDER_CONF = {
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': os.environ.get('DB_NAME'),
+#         'USER': os.environ.get('DB_USER'),
+#         'PASSWORD': os.environ.get('DB_PASSWORD'),
+#         'HOST': os.environ.get('DB_host'),
+#         'PORT': os.environ.get('DB_PORT'),
+#     }
+# }
+
+# Heroku DATABASES
+# https://dashboard.heroku.com/apps/template-projects/settings
+# postgres://idkcmkhjmjudfc:3729beae6bc45d182c82c145dd7c13bfae84e906453ef4c584bf178baf131a51@ec2-34-247-118-233.eu-west-1.compute.amazonaws.com:5432/d4uip67fidhegi
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASSWORD'),
-        'HOST': os.environ.get('DB_host'),
-        'PORT': os.environ.get('DB_PORT'),
+        'NAME': 'd4uip67fidhegi',
+        'HOST': 'ec2-34-247-118-233.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'idkcmkhjmjudfc',
+        'PASSWORD': '3729beae6bc45d182c82c145dd7c13bfae84e906453ef4c584bf178baf131a51',
     }
 }
 
