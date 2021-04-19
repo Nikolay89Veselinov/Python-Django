@@ -152,6 +152,7 @@ MIDDLEWARE = [
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
     'axes.middleware.AxesMiddleware',
+    'whitenoise.middleware.WhiteNoiseMiddlewere',
 ]
 
 INSTALLED_APPS = [
