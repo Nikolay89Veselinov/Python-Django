@@ -7,6 +7,7 @@ autopep8==1.4.4
 backcall==0.1.0
 beautifulsoup4==4.9.3
 bleach==3.2.1
+bower==0.0.0
 captcha==0.3
 certifi==2019.9.11
 cffi==1.14.4
@@ -75,6 +76,7 @@ future==0.18.2
 geocoder==1.38.1
 geographiclib==1.50
 geoip2==4.1.0
+grunt==0.1.1
 gunicorn==20.0.4
 html5lib==1.0.1
 idna==2.8

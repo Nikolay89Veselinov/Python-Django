@@ -99,11 +99,11 @@ LOGIN_URL = '/loginuser/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
-STATIC_URL = '/static/'
+# STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-# STATIC_ROOT = '/tmp/staticfiles'
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+STATIC_ROOT = '/tmp/staticfiles'
+# STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
 
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'template_project', 'static'),
@@ -142,6 +142,7 @@ TEMPLATES = [
 
 
 MIDDLEWARE = [
+    'whitenoise.middleware.WhiteNoiseMiddleware',
     'cms.middleware.utils.ApphookReloadMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -155,7 +156,6 @@ MIDDLEWARE = [
     'cms.middleware.toolbar.ToolbarMiddleware',
     'cms.middleware.language.LanguageCookieMiddleware',
     'axes.middleware.AxesMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 INSTALLED_APPS = [
