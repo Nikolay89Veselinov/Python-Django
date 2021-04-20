@@ -102,8 +102,8 @@ LOGIN_URL = '/loginuser/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-# STATIC_ROOT = '/tmp/staticfiles'
-STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
+STATIC_ROOT = '/tmp/staticfiles'
+# STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
 
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'template_project', 'static'),
