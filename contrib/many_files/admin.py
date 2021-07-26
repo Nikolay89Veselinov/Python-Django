@@ -8,11 +8,11 @@ class FileAdmin(admin.StackedInline):
     model = File
     extra = 2
 
-    def get_max_num(self, request, obj=None, **kwargs):
-        max_num = 3
-        if obj and obj.parent:
-            return max_num - 1
-        return max_num
+    # def get_max_num(self, request, obj=None, **kwargs):
+    #     max_num = 3
+    #     if obj and obj.parent:
+    #         return max_num - 1
+    #     return max_num
 
 @admin.register(FileCollection)
 class FileCollectionAdmin(admin.ModelAdmin):

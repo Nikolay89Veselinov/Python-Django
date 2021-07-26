@@ -16,9 +16,9 @@
                 <p class="mt-2">Description: {{ pet_description }}</p>
                 <div>
                     {% if can_edit %}
-                    <a href='{% url "petstagram:pet_edit" pet.id %}' class='btn btn-success'>Edit</a>
-                    {% else %}
                     <p style='color: red'>No can edit pet, because you are not the owner</p>
+                    {% else %}
+                    <a href='{% url "petstagram:pet_edit" pet.id %}' class='btn btn-success'>Edit</a>
                     {% endif %}
                     {% if can_delete %}
                     <a href='{% url "petstagram:pet_delete" pet.id %}' class='btn btn-danger'>Delete</a>
