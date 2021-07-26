@@ -1,0 +1,17 @@
+{% load cms_tags %}
+{% for child in children %}
+  <li>
+    <a href="{{ child.attr.redirect_url|default:child.get_absolute_url }}" class="{% if forloop.counter == 3%}first{% endif %} {% if child.get_absolute_url == buy_online_url %}green{% endif %}">
+      {{ child.get_menu_title }}
+    </a>
+    {% if child.children %}
+    <div class="submenu{% if forloop.counter == 3 %} first{% endif %}">
+      <ul>
+        {% for subchild in child.children %}
+          1111111<li><a class="arrow blue" href="{{ subchild.attr.redirect_url|default:subchild.get_absolute_url }}"><i class="fa-li fa fa-square"></i>{{ subchild.get_menu_title }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endif %}
+  </li>
+{% endfor %}

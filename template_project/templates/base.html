@@ -9,6 +9,8 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <title></title>
+        <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
@@ -16,38 +18,57 @@
         {% block "extra-js" %}{% endblock %}
 
         <style type="text/css">
-            .nav {
-                padding-left: 0;
-            }
-            .nav li {
-                display: inline;
-                list-style-type: none;
-                padding-right: 20px;
-            }
-            .container {
-                width: 940px;
-                margin: 0 auto
-            }
-            .content {
-                float: left;
-                width: 80%;
-            }
-            .sidebar {
-                float: left;
-                width: 20%;
-            }
+    nav ul li:hover .submenu {
+            display: block;
+        }
+    nav ul li:hover {
+        background-color: white;
+        text-decoration: none;
+    }
+
+    .submenu {
+        background-color: #fff;
+        background-position: bottom right;
+        background-repeat: no-repeat;
+        border-right: 1px solid #fff;
+        display: none;
+        left: 0;
+        min-height: 160px;
+        padding: 35px 0px 15px;
+        padding-right: 50px;
+        position: absolute;
+        width: auto;
+    }
+    .submenu ul {
+        display: grid;
+        text-align: left;
+    }
+    nav li {
+        display: inline-block;
+        position: relative;
+    }
+    nav li a{
+display: block;
+text-decoration: none;
+    }
+    nav {
+        background-color: red;
+        text-align: center;
+    }
         </style>
         {% render_block "css" %}
     </head>
     <body>
         <a href="\">Home</a>
         {% cms_toolbar %}
-        <div class="container">
-            <ul class="nav">
-                {% show_menu 0 100 100 100 %}
-            </ul>
-          {% static_placeholder 'logo' %}
-        </div>
+        <nav>
+          <ul class="menu_tab">
+            {% block menu_tab %}
+              {% show_menu 0 1 1 1 "menu/menu_tab.html" %}
+            {% endblock %}
+          </ul>
+        </nav>
+        
         {% block content %}{% endblock content %}
         {% block javascript %}{% endblock javascript %}
         {% static_placeholder 'footer' %}
