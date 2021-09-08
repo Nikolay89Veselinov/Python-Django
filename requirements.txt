@@ -108,7 +108,7 @@ parso==0.5.1
 pdfkit==0.6.1
 pexpect==4.7.0
 pickleshare==0.7.5
-Pillow==6.2.0
+Pillow==8.3.2
 pip-review==1.1.0
 pkginfo==1.6.1
 polls @ git+http://git@github.com/divio/django-polls.git@8caed34261c1e6bbf0eeb8aeb2cb7e7b980299bb
