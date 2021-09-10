@@ -15,8 +15,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <script type="text/javascript" src="//code.jquery.com/jquery-2.1.0.min.js"></script>
         <script src="{% static 'js/notification.js' %}"></script>
+        <script src="{% static 'js/validators.js' %}"></script>
+        <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
         {% block "extra-js" %}{% endblock %}
 
+        {% block "css" %} {% endblock %}
         <style type="text/css">
     nav ul li:hover .submenu {
             display: block;
@@ -61,6 +65,12 @@ text-decoration: none;
     <body>
         <a href="\">Home</a>
         {% cms_toolbar %}
+        
+        {% if request.current_page.iconextension %}
+            <img src="{{ request.current_page.iconextension.image.url }}">
+        {% endif %}
+
+        {{ request.current_page.get_title_obj.ratingextension.rating }}
         <nav>
           <ul class="menu_tab">
             {% block menu_tab %}

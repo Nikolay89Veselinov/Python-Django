@@ -1,5 +1,70 @@
-<form action="" method="POST">
-    {% csrf_token %} 
-    {{ form.as_p }} 
-    <input type="submit" value="Submit"> 
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<form class="cmsform" id="commentForm" method="POST" role="form" novalidate>
+    {% csrf_token %}
+    <fieldset style="text-align: center">
+        <legend>Comment Form</legend>
+        <div class="front-validation">
+            <label for="name">Name <span>Wrong Name</span> </label>
+            <input id="name" name="name" type="text" required>
+        </div>
+        <div class="front-validation">
+            <label for="phone">Phone <span>Wrong phone</span> </label>
+            <input id="c_phone" maxlength="10" name="phone" type="tel" required>
+        </div>
+
+        <div class="front-validation">
+            <label for="password">Password <span>Wrong password</span> </label>
+            <textarea id="c_password" name="password" type="text" required></textarea>>
+        </div>
+        <div class="front-validation">
+            <label for="confirm_password">Confirm_password <span>Wrong Confirm_password</span> </label>
+            <input id="c_confirm_password" maxlength="10" name="confirm_password" type="text" required>
+        </div>
+
+        <div class="front-validation">
+            <label for="description">Description <span>Wrong descriptions</span> </label>
+            <textarea id="c_description" name="description" type="text" required></textarea>>
+        </div>
+        <div class="front-validation">
+            <label for="egn">EGN <span>Wrong egn</span> </label>
+            <input id="c_egn" maxlength="10" name="egn" type="text" required>
+        </div>
+        <div class="front-validation">
+            <label for="email">Email <span>Wrong email</span> </label>
+            <input id="c_email" name="email" type="email" required>
+        </div>
+        <div class="front-validation">
+            <label for="active">Active <span>Wrong active</span> </label>
+            <input id="c_active" name="active" type="checkbox" required>
+        </div>
+        <div class="front-validation">
+            <label for="url">URL <span>Wrong url</span> </label>
+            <input id="c_url" name="url" type="url" required>
+        </div>
+        <input id="submit" class="submit" type="submit" value="Submit"> 
+    </fieldset>
 </form>
+{% endblock %}
+
+{% block "css" %}{{block.super}}
+<style>
+    span{
+        display: none;
+    }
+    .error {
+    color: red;
+    }
+    .error > input{
+    border-color: red;
+    }
+    .error > label > span {
+        display: block;
+    }
+    .succes > label > span {
+        display: none;
+    }
+</style>
+{% endblock %}
