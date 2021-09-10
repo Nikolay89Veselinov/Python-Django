@@ -1,3 +1,9 @@
+{% load cms_tags %}
+<div class="myplugin" style="text-align: center;">
+{% for plugin in instance.child_plugin_instances %}
+     {% render_plugin plugin %}
+{% endfor %}
+</div>
 <h1>{{title}}</h1>
 <p>{{description}}</p>
 <img src="{{image.url}}" alt="{{title}}">
