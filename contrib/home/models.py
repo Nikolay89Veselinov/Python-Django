@@ -1,5 +1,8 @@
 from cms.models.pluginmodel import CMSPlugin
 from django.contrib.auth.models import User
+from cms.extensions import PageExtension
+from cms.extensions import TitleExtension
+from cms.extensions.extension_pool import extension_pool
 
 from django.db import models
 
@@ -20,3 +23,15 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return self.user
+
+
+class IconExtension(PageExtension):
+    image = models.ImageField(upload_to='icons')
+
+extension_pool.register(IconExtension)
+
+
+class RatingExtension(TitleExtension):
+    rating = models.IntegerField()
+
+extension_pool.register(RatingExtension)

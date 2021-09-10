@@ -42,7 +42,7 @@ def formset_view(request):
     return render(request, "formset.html", context)
 
 def form_messages(request):
-    obj = Client.objects.get(id=60)
+    # obj = Client.objects.get(id=60)
 
     if request.is_ajax():
         form = FormMessages(request.GET)
