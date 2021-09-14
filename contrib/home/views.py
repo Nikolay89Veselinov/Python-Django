@@ -20,7 +20,6 @@ def home(request):
     request.session['num_visits'] = num_visits
     print('test git revert 2')
     print('test git revert 3')
-    print('test git revert 4')
     if num_visits >= 5:
         del(request.session['num_visits'])
     context = {
