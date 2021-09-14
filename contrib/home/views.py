@@ -15,6 +15,7 @@ def get_redirect_url(params):
     redirect_url = params.get('return_url')
     return redirect_url if redirect_url else 'home'
     print('test git revert merge 1')
+    print('test git revert merge 2')
 
 def home(request):
     num_visits = request.session.get('num_visits', 0) + 1
