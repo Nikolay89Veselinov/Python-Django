@@ -18,7 +18,7 @@ def get_redirect_url(params):
 def home(request):
     num_visits = request.session.get('num_visits', 0) + 1
     request.session['num_visits'] = num_visits
-
+    print('test git revert 2')
     if num_visits >= 5:
         del(request.session['num_visits'])
     context = {
