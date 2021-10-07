@@ -97,6 +97,7 @@ urlpatterns = i18n_patterns(
     path('logoutuser/', logout_user, name='logout_user'),
     path('registeruser/', register_user, name='register_user'),
     path('accounts/', include('contrib.accounts.urls')),
+    path('chat/', include('contrib.chat.urls')),
     
     # url(r'^locked/$', locked_out, name='locked_out'),
 )

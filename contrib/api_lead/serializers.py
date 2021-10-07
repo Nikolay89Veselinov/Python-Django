@@ -8,7 +8,7 @@ from .models import Item
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ['url', 'username', 'email', 'is_staff']
+        fields = ['id', 'url', 'username', 'email', 'is_staff']
 
 
 class ItemSerializer(serializers.ModelSerializer):

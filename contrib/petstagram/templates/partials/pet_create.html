@@ -6,8 +6,19 @@
     <div class="col-lg-6">
         <form method="post" class="furniture-form" enctype="multipart/form-data">
             {% csrf_token %}
-            {{ form }}
-            <button class="btn btn-primary mt-2" type="submit">Create</button>
+        <fieldset>
+            <legend style="float:right">Create Pet:</legend>
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" val="{{ form.name }}"><br><br>
+            {{ form.type }}
+            <label for="age">Age:</label>
+            <input type="text" id="age" name="age" val="{{ form.age }}"><br><br>
+            <label for="description">Description:</label>
+            <input type="text" id="description" name="description" val="{{ form.description }}"><br><br>
+            <label for="image_url">Image url:</label>
+            <input type="file" id="image_url" name="image_url" val="{{ form.image_url }}"><br><br>
+            <input type="submit" value="Submit">
+          </fieldset>
         </form>
     </div>
     <div class="col-lg-3"></div>

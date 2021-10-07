@@ -48,6 +48,17 @@ ROOT_URLCONF = 'template_project.urls'
 
 WSGI_APPLICATION = 'template_project.wsgi.application'
 
+# Channels
+# You must execute this command for it to work: docker run -p 6379:6379 -d redis:5
+ASGI_APPLICATION = 'template_project.routing.application'
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
+}
 
 # Database
 # https://docs.djangoproject.com/en/2.1/ref/settings/#databases
@@ -160,6 +171,7 @@ MIDDLEWARE = [
 
 INSTALLED_APPS = [
     # 'admin_interface',
+    'channels',
     'colorfield',
     'polymorphic',
     'djangocms_admin_style',
@@ -217,6 +229,7 @@ INSTALLED_APPS = [
     'location_field.apps.DefaultConfig',
     'contrib.many_files.apps.ManyFilesConfig',
     'contrib.api_lead',
+    'contrib.chat',
 
 ]
 
