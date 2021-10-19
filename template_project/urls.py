@@ -98,6 +98,7 @@ urlpatterns = i18n_patterns(
     path('registeruser/', register_user, name='register_user'),
     path('accounts/', include('contrib.accounts.urls')),
     path('chat/', include('contrib.chat.urls')),
+    path('fibonacci-sequence/', include('contrib.fibonacci_sequence.urls'), name='fibonacci-sequence'),
     
     # url(r'^locked/$', locked_out, name='locked_out'),
 )
