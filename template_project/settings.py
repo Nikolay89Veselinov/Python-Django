@@ -230,7 +230,7 @@ INSTALLED_APPS = [
     'contrib.many_files.apps.ManyFilesConfig',
     'contrib.api_lead',
     'contrib.chat',
-
+    'contrib.fibonacci_sequence',
 ]
 
 DEFAULT_FROM_EMAIL = 'nikolay.veselinov@industria.tech'
