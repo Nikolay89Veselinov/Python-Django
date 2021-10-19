@@ -35,12 +35,12 @@ ALLOWED_HOSTS = [
     'template-project-demo.herokuapp.com',
     "*",
 ]
-
+# https://template-projects.herokuapp.com/en/
 
 # Application definition
 
 
-
+print('test1')
 
 
 ROOT_URLCONF = 'template_project.urls'
@@ -230,6 +230,7 @@ INSTALLED_APPS = [
     'contrib.many_files.apps.ManyFilesConfig',
     'contrib.api_lead',
     'contrib.chat',
+    'contrib.charts',
 
 ]
 
