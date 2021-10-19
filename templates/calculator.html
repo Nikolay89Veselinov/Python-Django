@@ -8,7 +8,8 @@
 <input id="second_number" type="number">
 <button class="btn">=</button>
 <input id="result" type="number" pattern="^\d*(\.\d{0,2})?$" readonly placeholder="0.00">
-
+<p class="is-fibonacci"></p>
+<p class="counter"></p>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
 
@@ -22,7 +23,24 @@ $('.btn').click(function () {
       'operation': $('#operation').val(),
     },
     success: function (response) {
-        $('#result').val(response)
+        if (response.result > 10000) {
+            $('.is-fibonacci').text('Result out of range! The result must be less than 10,000');
+            $('.is-fibonacci').css('color', 'red');
+            $('.counter').text('');
+            $('#result').val(response.result);
+        } else {
+            $('#result').val(response.result);
+            $('.counter').text(`Тhe position of the result in Fibonacci numbers is: ${response.counter}`);
+            
+            if(response.is_fibonacci){
+                $('.is-fibonacci').text('The result is in Fibonacci numbers');
+                $('.is-fibonacci').css('color', 'blue');
+            } else {
+                $('.is-fibonacci').text('Тhe result is not in Fibonacci numbers');
+                $('.is-fibonacci').css('color', 'red');
+                $('.counter').text('');
+            };
+        };
     },
     dataType: 'json'
     });
