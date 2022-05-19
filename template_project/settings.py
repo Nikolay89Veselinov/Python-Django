@@ -316,16 +316,30 @@ CMS_PLACEHOLDER_CONF = {
 #     }
 # }
 
+# Heroku DATABASES 2
+# https://dashboard.heroku.com/apps/template-projects/settings
+# postgres://ohmlvutxklcdyw:f7cfe89edc588b435f3ac47dd3cec835b63eb18b6d287c4a28643335b0db4781@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d3i5t8d0c5q7n5
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'template_projectdb',
-        'USER': 'template_project',
-        'PASSWORD': 'template_project',
-        'HOST': 'localhost',
+        'NAME': 'd3i5t8d0c5q7n5',
+        'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
         'PORT': '5432',
+        'USER': 'ohmlvutxklcdyw',
+        'PASSWORD': 'f7cfe89edc588b435f3ac47dd3cec835b63eb18b6d287c4a28643335b0db4781',
     }
 }
+
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
+#         'NAME': 'template_projectdb',
+#         'USER': 'template_project',
+#         'PASSWORD': 'template_project',
+#         'HOST': 'localhost',
+#         'PORT': '5432',
+#     }
+# }
 
 MIGRATION_MODULES = {
 
