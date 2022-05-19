@@ -33,6 +33,7 @@ ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
     'template-project-demo.herokuapp.com',
+    'template-projectss.herokuapp.com'
     "*",
 ]
 # https://template-projects.herokuapp.com/en/
