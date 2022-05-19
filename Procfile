@@ -1,1 +1,1 @@
-web: gunicorn --bind 0.0.0.0:$PORT template_project:app
+web: gunicorn template_project.wsgi --log-file -
