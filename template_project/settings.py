@@ -114,8 +114,8 @@ LOGIN_URL = '/loginuser/'
 STATIC_URL = '/static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(DATA_DIR, 'media')
-# STATIC_ROOT = '/tmp/staticfiles'
-STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
+STATIC_ROOT = '/tmp/staticfiles'
+# STATIC_ROOT = os.path.join(DATA_DIR, 'staticfiles')
 
 # STATICFILES_DIRS = (
 #     os.path.join(BASE_DIR, 'template_project', 'static'),
@@ -278,18 +278,18 @@ CMS_PLACEHOLDER_CONF = {
 
 }
 
-DATABASES = {
-    'default': {
-        'CONN_MAX_AGE': 0,
-        'ENGINE': 'django.db.backends.sqlite3',
-        'HOST': 'localhost',
-        'NAME': 'projectdb',
-        'USER': 'template_project',
-        'PASSWORD': 'template_project',
-        'PORT': '',
-        'USER': ''
-    }
-}
+# DATABASES = {
+#     'default': {
+#         'CONN_MAX_AGE': 0,
+#         'ENGINE': 'django.db.backends.sqlite3',
+#         'HOST': 'localhost',
+#         'NAME': 'projectdb',
+#         'USER': 'template_project',
+#         'PASSWORD': 'template_project',
+#         'PORT': '',
+#         'USER': ''
+#     }
+# }
 
 # DATABASES = {
 #     'default': {
@@ -319,16 +319,16 @@ DATABASES = {
 # Heroku DATABASES 2
 # https://dashboard.heroku.com/apps/template-projects/settings
 # postgres://ohmlvutxklcdyw:f7cfe89edc588b435f3ac47dd3cec835b63eb18b6d287c4a28643335b0db4781@ec2-52-18-116-67.eu-west-1.compute.amazonaws.com:5432/d3i5t8d0c5q7n5
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-#         'NAME': 'd3i5t8d0c5q7n5',
-#         'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
-#         'PORT': '5432',
-#         'USER': 'ohmlvutxklcdyw',
-#         'PASSWORD': 'f7cfe89edc588b435f3ac47dd3cec835b63eb18b6d287c4a28643335b0db4781',
-#     }
-# }
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'd3i5t8d0c5q7n5',
+        'HOST': 'ec2-52-18-116-67.eu-west-1.compute.amazonaws.com',
+        'PORT': '5432',
+        'USER': 'ohmlvutxklcdyw',
+        'PASSWORD': 'f7cfe89edc588b435f3ac47dd3cec835b63eb18b6d287c4a28643335b0db4781',
+    }
+}
 
 # DATABASES = {
 #     'default': {
