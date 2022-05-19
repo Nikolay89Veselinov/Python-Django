@@ -29,4 +29,5 @@ def map(request):
             'object_json': mark_safe(DjangoJSONEncoder().encode(json_items)),
 
         }
+        print(json_items, '11111111111111111111111111111111111111111111111111111111111111111111111111111111111')
     return render(request, 'osm.html', context)

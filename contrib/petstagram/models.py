@@ -1,5 +1,5 @@
 import pdfkit
-
+import uuid
 from django.db import models
 from django.utils.text import slugify
 from django.urls import reverse
@@ -34,6 +34,7 @@ class Pet(models.Model):
     description = models.TextField()
     image_url = models.ImageField(upload_to='images/pets')
     user = models.ForeignKey(User, on_delete=models.CASCADE)
+    # id = models.UUIDField(default=uuid.uuid4, unique=True, primary_key=True, editable=False)
 
     def __str__(self):
         return self.name

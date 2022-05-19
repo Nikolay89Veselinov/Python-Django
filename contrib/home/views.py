@@ -10,6 +10,7 @@ from contrib.form_wizard.models import Client
 from contrib.sort_filter.models import City, Country, Pub
 from contrib.based_views.forms import ArticleForm
 from .forms import RegisterForm, UserCreationForm, ProfileForm, LoginForm
+import requests
 
 def get_redirect_url(params):
     redirect_url = params.get('return_url')
@@ -20,6 +21,9 @@ def get_redirect_url(params):
     print('test git revert merge 2')
 
 def home(request):
+    response = requests.get('https://github.com/HackSoftware/Django-Styleguide')
+    print('-------------------------------------------')
+    print(response)
     num_visits = request.session.get('num_visits', 0) + 1
     request.session['num_visits'] = num_visits
     print('test git revert 2')

@@ -37,7 +37,7 @@ class ItemListApiView(generics.ListCreateAPIView):
     serializer_class = ItemSerializer
 
     def list(self, request, *args, **kwargs):
-        time.sleep(3)
+        # time.sleep(3)
         return super().list(request, *args, **kwargs)
 
 
