@@ -1,1 +1,1 @@
-web: gunicorn qweqewqweagerdf
+web: gunicorn --bind 0.0.0.0:$PORT template_project:app
