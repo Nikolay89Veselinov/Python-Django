@@ -12,7 +12,7 @@ Automat==20.2.0
 autopep8==1.4.4
 backcall==0.1.0
 beautifulsoup4==4.9.3
-bleach==3.2.1
+bleach==3.3.0
 bottle==0.12.19
 bottle-websocket==0.2.9
 bower==0.0.0
