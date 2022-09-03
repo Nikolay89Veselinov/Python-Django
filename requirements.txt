@@ -46,7 +46,7 @@ django-appconf==1.0.3
 django-axes==5.0.19
 django-bootstrap4==1.1.1
 django-classy-tags==0.9.0
-django-cms==3.6.0
+django-cms==3.6.1
 django-colorfield==0.3.2
 django-extensions==2.2.8
 django-filer==1.5.0
