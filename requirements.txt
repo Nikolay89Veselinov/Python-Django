@@ -13,7 +13,7 @@ autopep8==1.4.4
 backcall==0.1.0
 beautifulsoup4==4.9.3
 bleach==3.2.1
-bottle==0.12.19
+bottle==0.12.20
 bottle-websocket==0.2.9
 bower==0.0.0
 captcha==0.3
