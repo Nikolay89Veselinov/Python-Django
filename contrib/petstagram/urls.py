@@ -17,6 +17,7 @@ urlpatterns = [
     path('pets/', PetsListViews.as_view(), name='pet_list'),
     # path('detail/<int:id>/', pet_detail, name='pet_detail'),
     path('detail/<int:pk>/', PetDedailsView.as_view(), name='pet_detail'),
+    path('detail/<slug:slug>/', PetDedailsView.as_view(), name='pet_detail_slug'),
     # path('detail/<int:pk>/<slug:slug>/', PetDedailsView.as_view(), name='pet_detail'),
     # path('like/<int:id>/', pet_like, name='pet_like'),
     path('like/<int:pk>/', PetLikeViews.as_view(), name='pet_like'),

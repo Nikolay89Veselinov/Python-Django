@@ -27,6 +27,3 @@ def convert_currencies(request):
             "result": result,
         }
         return JsonResponse(data)
-
-
-# Create your views here.

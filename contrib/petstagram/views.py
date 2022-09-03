@@ -130,8 +130,8 @@ class PetCommentViews(auth_mixins.LoginRequiredMixin, views.FormView):
         return redirect('petstagram:pet_detail', self.kwargs['pk'])
 
 @login_required
-def pet_delete(request, id):
-    pet = Pet.objects.get(pk=id)
+def pet_delete(request, slug):
+    pet = Pet.objects.get(slug=slug)
 
     if request.method == 'GET':
         context = {

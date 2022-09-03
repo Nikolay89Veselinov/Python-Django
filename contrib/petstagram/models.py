@@ -27,7 +27,8 @@ class Pet(models.Model):
         (PARROT, 'Parrot'),
         (UNKNOWN, 'Unknown'),
     )
-    slug = models.SlugField(editable=False)
+    slug = models.SlugField()
+    # slug = models.SlugField(editable=False)
     type = models.CharField(max_length=6, choices=PET_TYPES_CHOICES, default=UNKNOWN)
     name = models.CharField(max_length=6)
     age = models.IntegerField(default=0)
@@ -64,9 +65,9 @@ class Pet(models.Model):
         # return pdfkit.from_string(render_to_string(template, {'pet': self}), False)
 
 class Like(models.Model):
-    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    pet = models.ForeignKey(Pet, on_delete=models.SET_NULL, null=True)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    
     def get_absolute_url(self):
         return reverse('petstagram:pet_like', kwargs={'pk': self.id})
 

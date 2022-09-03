@@ -34,8 +34,11 @@ class AdminTricks(models.Model):
         verbose_name = _('Admin Trick')
         verbose_name_plural = _('Admin Tricks')
 
+    def full_name(self):
+        return self.first_name + '' + self.last_name
+
     def __str__(self):
-        return self.first_name
+        return self.full_name()
     
     def colored_name(self):
         return format_html(

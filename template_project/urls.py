@@ -34,6 +34,7 @@ from contrib.calculator.views import get_response
 from contrib.currencies.views import exchange_rate, convert_currencies
 from contrib.validators.views import validator
 from contrib.django_polymorphic.views import AminalsViewSet
+from contrib.test_urls.views import monthly_challenge, monthly_challenge_by_numbers
 from rest_framework.authtoken.views import obtain_auth_token
 
 
@@ -99,7 +100,9 @@ urlpatterns = i18n_patterns(
     path('accounts/', include('contrib.accounts.urls')),
     path('chat/', include('contrib.chat.urls')),
     path('fibonacci-sequence/', include('contrib.fibonacci_sequence.urls'), name='fibonacci-sequence'),
-    
+    path('challenge/', include('contrib.test_urls.urls')),
+
+
     # url(r'^locked/$', locked_out, name='locked_out'),
 )
 

@@ -41,7 +41,7 @@ class UserProfileViews(views.UpdateView):
         return user
 
     def get_context_data(self, **kwargs):
-        # import ipdb; ipdb.set_trace()
+        # import ipdb; ipdb.set_trace() 
         context = super().get_context_data(**kwargs)
         context['profile_user'] = self.get_object()
         context['pets'] = self.get_object().pet_set.all()

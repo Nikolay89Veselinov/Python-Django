@@ -1,3 +1,4 @@
+from socket import IP_DROP_MEMBERSHIP
 from django.shortcuts import render
 from rest_framework.response import Response
 
@@ -7,6 +8,7 @@ from rest_framework import viewsets, views, status, generics, mixins
 from .serializers import UserSerializer, ItemSerializer
 from .models import Item
 import time
+
 class UserViewSet(viewsets.ModelViewSet):
     queryset = User.objects.all()
     serializer_class = UserSerializer
@@ -38,6 +40,7 @@ class ItemListApiView(generics.ListCreateAPIView):
 
     def list(self, request, *args, **kwargs):
         # time.sleep(3)
+        # import ipdb; ipdb.set_trace()
         return super().list(request, *args, **kwargs)
 
 
