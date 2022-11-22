@@ -134,7 +134,7 @@ parso==0.8.3
 pdfkit==0.6.1
 pexpect==4.7.0
 pickleshare==0.7.5
-Pillow==9.1.0
+Pillow==9.3.0
 pip-review==1.1.0
 pkginfo==1.6.1
 poll==0.1
