@@ -17,7 +17,7 @@ bottle==0.12.19
 bottle-websocket==0.2.9
 bower==0.0.0
 captcha==0.3
-certifi==2019.9.11
+certifi==2022.12.7
 cffi==1.14.4
 channels==2.2.0
 channels-redis==2.4.1
