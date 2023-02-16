@@ -192,7 +192,7 @@ Unidecode==1.0.23
 urllib3==1.25.7
 wcwidth==0.1.7
 webencodings==0.5.1
-Werkzeug==1.0.1
+Werkzeug==2.2.3
 whichcraft==0.6.1
 whitenoise==5.2.0
 wrapt==1.11.2
